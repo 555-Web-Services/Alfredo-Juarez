@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de Alfredo Juarez - Alfredo Juarez</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #111; color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: white; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2em; text-align: center; }
+  </style>
+     <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 40s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+  /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #bbbb24;
+  background-color:#000;
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #f6f0e0;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+}
+
+  </style>
+  <style>
+    .bio-section {
+  padding: 3em 1em;
+  background-color: #f8f8f8;
+}
+
+.bio-section:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2em;
+}
+
+.bio-section.reverse .content {
+  flex-direction: row-reverse;
+}
+
+.text {
+  flex: 1 1 45%;
+  font-size: 1.1em;
+}
+
+.image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+  </style>
+  
+</head>
+<body>
+   <header>
+    <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Página Principal</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería de Arte</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca de Alfredo Juarez</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar Sesion</a></li>
+    </ul>
+  </nav>
+  <main>
+    
+      <h2>Biografía</h2>
+      <p>Alfredo Juarez es un artista multidisciplinario nacido en México, conocido por su obra musical y plástica.</p>
+
+  <section class="bio-section">
+    <div class="content">
+      <div class="text">
+        <h2>¿Quién es Alfredo Juárez?</h2>
+        <p>Alfredo Juárez es un artista multidisciplinario con formación autodidacta en música y artes visuales. Desde temprana edad se destacó por su sensibilidad estética y su capacidad para transmitir emociones tanto a través de sonidos como de colores.</p>
+      </div>
+      <div class="image">
+        <img src="img/Acerca de/Foto 2.jpeg" alt="Alfredo Juárez" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section reverse">
+    <div class="content">
+      <div class="image">
+        <img src="img/Acerca de/Alfredo Juarez Vamonos.jpeg" alt="Disco Vámonos" />
+      </div>
+      <div class="text">
+        <h2>Disco "Vámonos..." (2012)</h2>
+        <p>En 2012, Alfredo lanza su primer álbum “Vámonos...”, una obra íntima que mezcla sonidos acústicos con letras introspectivas. Este álbum marcó el inicio de su carrera musical profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="content">
+      <div class="text">
+        <h2>Primeras dos pinturas</h2>
+        <p>Durante un proceso de autoexploración, Alfredo pintó sus dos primeras obras visuales. Estas piezas, llenas de simbolismo y emoción, definieron el inicio de su carrera en las artes plásticas.</p>
+      </div>
+      <div class="image">
+        <img src="img/Acerca de/Foto 4.png" alt="Pinturas de Alfredo" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section reverse">
+    <div class="content">
+      <div class="image">
+        <img src="img/Acerca de/Alfredo Juarez Aunque No Sea Conmigo.jpeg" alt="Disco Aunque no sea conmigo" />
+      </div>
+      <div class="text">
+        <h2>"Aunque no sea conmigo..." (2025)</h2>
+        <p>En 2025, Alfredo regresa con su disco “Aunque no sea conmigo...”, una obra madura que consolida su identidad sonora, con letras que abordan el amor, el tiempo y la distancia.</p>
+      </div>
+    </div>
+  </section>
+
+
+    
+  </main>
+  
+  <footer style="background-color: #111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+</body>
+</html>
