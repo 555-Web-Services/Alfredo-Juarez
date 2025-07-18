@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const messages = document.getElementById('chat-messages');
 
   // 🔗 Conexión con tu servidor backend en Render
-  const socket = io('https://TU-BACKEND.onrender.com'); // reemplaza con tu URL real
+  const socket = io('https://alfredo-backend.onrender.com'); // reemplaza con tu URL real
 
   socket.emit('identificar', clientId);
 
