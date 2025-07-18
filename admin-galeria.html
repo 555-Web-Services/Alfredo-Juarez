@@ -340,7 +340,10 @@ function renderObras() {
       <div class="carrusel-obra">
         <div class="imagenes-obra" id="carrusel-${obra.id}">
   ${obra.imagenes && obra.imagenes.length > 0 
-    ? obra.imagenes.map(src => `<img src="${src}" alt="Imagen de la obra">`).join('')
+    ? obra.imagenes.map(src => {
+        const filename = src.split('/').pop();
+        return `<img src="/uploads/${filename}" alt="Imagen de la obra">`;
+      }).join('')
     : '<p style="color: #888; font-style: italic;">(Sin imágenes)</p>'}
 </div>
 
