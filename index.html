@@ -1,1 +1,439 @@
-Alfredo Juarez
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ALFREDO JUAREZ </title>
+  <style>
+    /*body { font-family: Expanded Super Bold, Helvetica, sans-serif; margin: 0; padding: 0; }*/
+    header { background-color: #0f0f0f; color: rgb(196, 196, 188); padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: #f5f0e6; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2em; text-align: center; }
+  </style>
+    <style>
+
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: "Expanded Super Bold", Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
+}
+
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 40s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+  /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #bbbb24;
+  background-color:#000;
+
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #bbbb24;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+}
+
+  </style>
+
+<!-- En el <head> -->
+<link rel="stylesheet" href="/chat-style.css">
+</head>
+<body>
+  <header>
+    <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+  <nav>
+    
+    <ul id="menu">
+      <li><a href="index.html">Página Principal</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería de Arte</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca de Alfredo Juárez</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar Sesión</a></li>
+    </ul>
+  </nav>
+ 
+
+  <style>
+   .novedades-section {
+  background: linear-gradient(to bottom, #f5f0e6, #d9c5a5);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.novedades-section h2 {
+  font-size: 2.8em;
+  font-family: 'Akira Expanded Super Bold', sans-serif;
+  margin-bottom: 50px;
+  color: #2f2f2f;
+}
+
+.novedad {
+  display: flex;
+  flex-wrap: wrap; /* para que sea responsive */
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  padding: 20px;
+  align-items: center; /* centra verticalmente */
+}
+
+.novedad-texto {
+  flex: 1 1 60%; /* texto ocupa 60% */
+  padding: 20px;
+  text-align: left;
+}
+
+.novedad-texto h3 {
+  font-size: 1.8em;
+  color: #2f2f2f;
+  margin-bottom: 10px;
+}
+
+.novedad-texto hr {
+  width: 60px;
+  border: 2px solid #a68c6d;
+  margin: 10px 0 20px 0;
+}
+
+.novedad-texto p {
+  font-size: 1.2em;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.leer-mas {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 1em;
+  color: white;
+  background-color: #2f2f2f;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.leer-mas:hover {
+  background-color: #555;
+}
+
+.novedad-imagen {
+  flex: 1 1 30%; /* imagen ocupa 30% */
+  padding: 10px;
+}
+
+.novedad-imagen img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+  </style>
+  <style>
+    .redes-sociales {
+  background: linear-gradient(to bottom, #f5f0e6, #d9c5a5);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.redes-sociales h2 {
+  font-size: 2.2em;
+  font-family: 'Akira Expanded Super Bold', sans-serif;
+  color: #2f2f2f;
+  margin-bottom: 10px;
+}
+
+.redes-sociales p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.iconos-redes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.iconos-redes a img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.iconos-redes a img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+  </style>
+  <main>
+  <section class="titulo-alfredo">
+    <h1>Alfredo Juárez</h1>
+    <div class="decorador-linea"></div>
+    <p>Artista visual y musical que transforma emociones en arte.</p>
+  </section>
+
+  <section>
+  <h2 style="text-align:center;">📰 Novedades</h2>
+  <div id="novedades"></div>
+</section>
+
+  <section class="redes-sociales">
+    <h2>Redes Sociales y Música</h2>
+    <p>Conecta con Alfredo Juárez y sigue sus últimas novedades.</p>
+
+    <div class="iconos-redes">
+      <a href="https://www.facebook.com/profile.php?id=100031897076851" target="_blank">
+        <img src="img/Logos/Facebook_Logo_Primary.png" alt="Spotify">
+      </a>
+      <a href="https://www.instagram.com/tu_usuario" target="_blank">
+        <img src="img/Logos/Instagram_Glyph_Gradient.png" alt="Instagram">
+      </a>
+      <a href="https://open.spotify.com/intl-es/artist/4JdwcF3o6htpvyP2JYfgKc" target="_blank">
+        <img src="img/Logos/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify">
+      </a>
+      <a href="https://music.apple.com/mx/artist/alfredo-juarez/1807271868" target="_blank">
+        <img src="img/Logos/Apple_Music_Icon_RGB_sm_073120.svg" alt="Apple Music">
+      </a>
+      <a href="https://music.youtube.com/channel/UCDxK8kyq5M3ti4FVAw48f0w" target="_blank">
+        <img src="img/Logos/music_icon_1024px.png" alt="YouTube">
+      </a>
+      <a href="https://music.amazon.com.mx/artists/B09DLHJ9Z3/alfredo-juarez" target="_blank">
+        <img src="img/Logos/Amazon_Music_Logo_Stacked_RGB_White+Music_Cyan_MASTER.png" alt="Amazon Music">
+      </a>
+    </div>
+  </section>
+</main>
+
+    <footer style="background-color: #111111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+ <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch(`http://${window.location.hostname}:3000/ultimos-articulos`)
+      .then(response => response.json())
+      .then(articulos => {
+        const novedadesSection = document.getElementById('novedades');
+        novedadesSection.innerHTML = ''; // Limpiar contenido previo
+
+        if (articulos.length > 0) {
+          articulos.forEach(articulo => {
+            const articuloHTML = `
+              <div class="novedad">
+                <div class="novedad-texto">
+                  <h3>${articulo.titulo}</h3>
+                  <hr>
+                  <p><em>${articulo.resumen}</em></p>
+                  <a href="prensa.html#publicacion${articulo.id}" class="leer-mas">Leer más</a>
+                </div>
+                <div class="novedad-imagen">
+                  <img src="${formatImageUrl(articulo.imagen)}" alt="Imagen de la novedad">
+                </div>
+              </div>
+            `;
+            novedadesSection.innerHTML += articuloHTML;
+          });
+        } else {
+          novedadesSection.innerHTML = '<p>No hay artículos recientes.</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error al obtener las novedades:', error);
+        document.getElementById('novedades').innerHTML = '<p>Error al cargar novedades.</p>';
+      });
+
+    // Función para construir la URL completa de la imagen
+    function formatImageUrl(imagen) {
+      if (!imagen) return '';
+      if (imagen.startsWith('http')) return imagen;
+      return `http://${window.location.hostname}:3000/uploads/${imagen}`;
+    }
+  });
+</script>
+
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+<!-- Antes del </body> -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="/chat-widget.js"></script>
+  </body>
+    </html>
