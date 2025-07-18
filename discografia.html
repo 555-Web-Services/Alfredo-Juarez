@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discografía - Alfredo Juarez</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #111; color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: white; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2em; text-align: center; }
+  </style>
+      <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 20s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+  /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #bbbb24;
+  background-color:#000;
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #f6f0e0;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+}
+
+  </style>
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #0d1b2a;
+    color: #ffffff;
+  }
+
+  .album {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1b263b;
+    border-radius: 12px;
+    margin: 2em auto;
+    padding: 1.5em;
+    max-width: 1000px;
+    gap: 2em;
+    align-items: flex-start;
+  }
+
+ .album-image {
+  width: 500px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+  .album-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1em;
+}
+
+  .album-info {
+    flex: 1;
+  }
+
+  .album-info h2 {
+    margin-top: 0;
+  }
+
+  .album-info ul {
+    padding-left: 1em;
+  }
+
+  .album-info audio {
+  margin-top: 0.5em;
+  width: 100%;
+  max-width: 500px;  /* reduce el ancho */
+  transform: scaleY(1);  /* aumenta la altura */
+  transform-origin: top;   /* opcional: asegura que se expanda hacia abajo */
+  display: block;
+  }
+
+  .platforms {
+    margin-top: 1.5em;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .platforms a img {
+    width: 40px;
+    height: auto;
+    transition: transform 0.2s ease;
+  }
+
+  .platforms a img:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    .album {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .album-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .album-image img {
+      height: auto;
+    }
+
+    .album-info audio {
+      width: 90%;
+      max-width: none;
+    }
+  }
+</style>
+
+
+</head>
+<body>
+  <header>
+ <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Página Principal</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería de Arte</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca de Alfredo Juarez</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar Sesion</a></li>
+    </ul>
+  </nav>
+  <main>
+<h1>Descubre toda la discografía de Alfredo Juárez</h1>
+     <section class="album">
+<div class="album-image">
+    <img src="img/Header/Imagen disk11.jpeg" alt="Portada del Álbum">
+    <img src="img/Discografia/Contraportada.jpeg" alt="Contraportada del Álbum">
+    
+  </div>
+  <div class="album-info">
+    <h2>Aunque no sea conmigo...</h2>
+    <p>Este álbum reúne una colección de canciones inspiradas en la tierra, el arte y el alma. Cada pieza refleja el estilo único de Alfredo Juárez.</p>
+
+    <h3>Lista de canciones:</h3>
+    <ul>
+      <li>1. Aunque no sea conmigo <audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/1 Aunque no sea conmigo (Salsa)/1 Alfredo Juarez-Aunque no sea conmigo (Salsa).wav" type="audio/mpeg"></audio></li>
+      <li>2. La que se fue <audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/2 La que se fue (Salsa)/2 Alfredo Juarez-La que se fue (Salsa).wav" type="audio/mpeg"></audio></li>
+      <li>3. Baila morena <audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/3 Baila Morena (Cumbia Banda)/3 Alfredo Juarez-Baila morena (Cumbia Banda).wav" type="audio/mpeg"></audio></li>
+      <li>4. Un beso grande <audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/4 Un beso grande (Salsa)/4 Alfredo Juarez-Un beso grande (Salsa).wav" type="audio/mpeg"></audio></li>
+      <li>5. Amarrame <audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/5 Amarrame (Cumbia Banda)/5 Alfredo Juarez-Amarrame (Cumbia Banda).wav" type="audio/mpeg"></audio></li>
+      <li>6. Agua dulce, agua salá<audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/6 Agua dulce, agua salá (Salsa)/6 Alfredo Juarez-Agua dulce, agua salá (Salsa).wav" type="audio/mpeg"></audio></li>
+      <li>7. Eres mi sueño <audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/7 Eres mi sueño (Salsa)/7 Alfredo Juarez-Eres mi sueño (Salsa).wav" type="audio/mpeg"></audio></li>
+      <li>8. Hey <audio controls><source src="sounds/ALFREDO JUAREZ-AUNQUE NO SEA CONMIGO/8 Hey (Salsa)/8 Alfredo Juarez-Hey (Salsa).wav" type="audio/mpeg"></audio></li>
+    </ul>
+
+    <div class="platforms">
+      <a href="https://open.spotify.com/intl-es/album/0P462XFD7BwVYO6dz2xT1c?si=It7ftzHxQeWxsxuSM-rCAw" target="_blank"><img src="img/Logos/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"></a>
+      <a href="https://music.amazon.com/" target="_blank"><img src="img/Logos/Amazon_Music_Logo_Stacked_RGB_White+Music_Cyan_MASTER.png" alt="Amazon Music"></a>
+      <a href="https://music.apple.com/" target="_blank"><img src="img/Logos/Apple_Music_Icon_RGB_sm_073120.svg" alt="Apple Music"></a>
+    </div>
+  </div>
+  </section>
+     <section class="album">
+<div class="album-image">
+    <img src="img/Discografia/Alfredo Juarez Vamonos.jpeg" alt="Portada del Álbum">
+    <img src="img/Discografia/Contraportada 2.jpeg" alt="Contraportada del Álbum">
+  </div>
+
+  <div class="album-info">
+    <h2>Vamonos...</h2>
+    <p>Este álbum reúne una colección de canciones inspiradas en la tierra, el arte y el alma. Cada pieza refleja el estilo único de Alfredo Juárez.</p>
+
+    <h3>Lista de canciones:</h3>
+    <ul>
+      <li>1. Urge <audio controls><source src="01 Alfredo Juarez Urge.wav" type="audio/mpeg"></audio></li>
+      <li>2. La llorona <audio controls><source src="audio/demo.mp3" type="audio/mpeg"></audio></li>
+      <li>3. Vamonos <audio controls><source src="audio/demo.mp3" type="audio/mpeg"></audio></li>
+      <li>4. Cóncavo y convexo <audio controls><source src="audio/demo.mp3" type="audio/mpeg"></audio></li>
+      <li>5. Una chica normal <audio controls><source src="audio/demo.mp3" type="audio/mpeg"></audio></li>
+      <li>6. Dilio <audio controls><source src="audio/demo.mp3" type="audio/mpeg"></audio></li>
+      <li>7. El andariego <audio controls><source src="audio/demo.mp3" type="audio/mpeg"></audio></li>
+      <li>8. Lamento de amor <audio controls><source src="audio/demo.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+
+     <div class="platforms">
+      <a href="https://open.spotify.com/intl-es/album/0P462XFD7BwVYO6dz2xT1c?si=It7ftzHxQeWxsxuSM-rCAw" target="_blank"><img src="img/Logos/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"></a>
+      <a href="https://music.amazon.com/" target="_blank"><img src="img/Logos/Amazon_Music_Logo_Stacked_RGB_White+Music_Cyan_MASTER.png" alt="Amazon Music"></a>
+      <a href="https://music.apple.com/" target="_blank"><img src="img/Logos/Apple_Music_Icon_RGB_sm_073120.svg" alt="Apple Music"></a>
+    </div>
+  </div>
+  </section>
+    
+      <h2>Álbumes Destacados</h2>
+      <img src="img/disco1.jpg" alt="Disco 1" width="200">
+      <p>Primer álbum lanzado en 2010. Una mezcla única de sonidos tradicionales y modernos.</p>
+    
+  </main>
+  
+  <footer style="background-color: #111111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const audios = document.querySelectorAll("audio");
+
+    audios.forEach(audio => {
+      audio.addEventListener("timeupdate", function () {
+        if (audio.currentTime >= 40) {
+          audio.pause();
+          audio.currentTime = 0; // Regresa al inicio si quieres
+        }
+      });
+    });
+  });
+</script>
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas - Alfredo Juarez</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #111; color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: white; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2em; text-align: center; }
+  </style>
+   <style>
+
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: "Expanded Super Bold", Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
+}
+
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 40s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+   /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #111111;
+
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #f6f0e0;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+}
+
+  </style>
+  <style>
+  #panel-chat-admin {
+    display: flex;
+    gap: 1rem;
+    max-width: 100%;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  #clientes-chat {
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 6px;
+  }
+
+  .cliente-item {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background: white;
+    border: 1px solid #ddd;
+  }
+
+  .cliente-item:hover {
+    background: #eaeaea;
+  }
+
+  #chat-historial {
+    flex: 1;
+    min-width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+  }
+
+  #chat-historial .admin { color: green; }
+  #chat-historial .cliente { color: blue; }
+
+  #chat-historial h4 {
+    margin-top: 0;
+  }
+
+  .msg-line {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+  }
+</style>
+
+</head>
+<body>
+ <header>
+    <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Página Principal</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería de Arte</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca de Alfredo Juarez</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar Sesion</a></li>
+    </ul>
+  </nav>
+  <main>
+    
+     <section id="chat-admin" style="padding: 2rem; background-color: #f9f9f9;">
+  <h2 style="margin-bottom: 1rem;">Chat en Tiempo Real (Administrador)</h2>
+
+  <div id="chat-box" style="
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+    background: #fff;
+    margin-bottom: 10px;
+  "></div>
+
+  <input type="text" id="msg-input" placeholder="Escribe tu respuesta..." style="
+    width: 70%;
+    padding: 8px;
+    font-size: 1rem;
+    margin-right: 10px;
+  ">
+  <button onclick="enviar()" style="
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  ">Enviar</button>
+</section>
+
+<section id="panel-chat-admin">
+  <div id="clientes-chat">
+    <h4>Clientes</h4>
+    <div id="lista-clientes"></div>
+  </div>
+
+  <div id="chat-historial">
+    <h4>Chat con: <span id="cliente-activo">Selecciona un cliente</span></h4>
+    <div id="mensajes-historial"></div>
+  </div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+  const chatBox = document.getElementById('chat-box');
+  const input = document.getElementById('msg-input');
+
+  function appendMessage(sender, text, clase) {
+    const div = document.createElement('div');
+    div.classList.add('msg');
+    div.style.marginBottom = '8px';
+    div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    div.style.color = clase === 'admin' ? 'green' : 'blue';
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  socket.on('clientMessage', msg => {
+    appendMessage('Cliente', msg, 'cliente');
+  });
+
+  function enviar() {
+    const texto = input.value.trim();
+    if (texto) {
+      socket.emit('adminMessage', texto);
+      appendMessage('Admin', texto, 'admin');
+      input.value = '';
+    }
+  }
+
+  socket.on('adminMessage', msg => {
+    appendMessage('Admin', msg, 'admin');
+  });
+</script>
+
+    
+  </main>
+  
+  <footer style="background-color: #111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+<script>
+  // Elementos del historial
+  const listaClientes = document.getElementById('lista-clientes');
+  const mensajesHistorial = document.getElementById('mensajes-historial');
+  const clienteActivoLabel = document.getElementById('cliente-activo');
+
+  // Obtener historial de todos los clientes
+  fetch('/api/chats')
+    .then(res => res.json())
+    .then(data => {
+      data.forEach(chat => {
+        const item = document.createElement('div');
+        item.className = 'cliente-item';
+        item.textContent = chat.client_id;
+        item.onclick = () => cargarHistorial(chat.client_id, chat.mensajes);
+        listaClientes.appendChild(item);
+      });
+    });
+
+  function cargarHistorial(clientId, mensajes) {
+    clienteActivoLabel.textContent = clientId;
+    mensajesHistorial.innerHTML = '';
+    mensajes.forEach(msg => {
+      const div = document.createElement('div');
+      div.className = 'msg-line ' + msg.emisor;
+      div.innerHTML = `<strong>${msg.emisor}:</strong> ${msg.mensaje}`;
+      mensajesHistorial.appendChild(div);
+    });
+    mensajesHistorial.scrollTop = mensajesHistorial.scrollHeight;
+  }
+</script>
+
+</body>
+</html>

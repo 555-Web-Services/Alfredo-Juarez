@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Arte - Alfredo Juarez</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #111; color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: white; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2em; text-align: center; }
+  </style>
+      <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 40s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+ /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #bbbb24;
+  background-color:#000;
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #f6f0e0;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+}
+
+  </style>
+ <style>
+  .galeria-obras {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  background-color: #f6f0e0;
+}
+
+.obra-galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #fef7e6;
+  padding: 2em;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.obra-info {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.obra-info h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.obra-info p {
+  margin-bottom: 0.5em;
+}
+
+.obra-carrusel {
+  flex: 1 1 45%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  max-height: 500px;
+}
+
+.carousel-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin: 0 auto;
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-img.active {
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  font-size: 1.5em;
+  z-index: 2;
+  border-radius: 4px;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+@media (max-width: 768px) {
+  .obra-galeria {
+    flex-direction: column;
+  }
+
+  .obra-info, .obra-carrusel {
+    flex: 1 1 100%;
+  }
+
+  .carousel-box {
+    max-width: 90%;
+  }
+
+  .obra-info h2 {
+    font-size: 1.5em;
+  }
+
+  .obra-info p {
+    font-size: 0.95em;
+  }
+}
+
+ </style>
+</head>
+<body>
+   <header>
+    <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Página Principal</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería de Arte</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca de Alfredo Juarez</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar Sesion</a></li>
+    </ul>
+  </nav>
+  <main>
+    
+      <h2>Obras de Arte</h2>
+<!--Agregar obras de la base de datos-->
+
+      <section class="galeria-obras bg1" id="galeria">
+</section>
+  </main>
+  
+  <footer style="background-color: #111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+<script>
+  const carouselIntervals = new Map();
+
+  function startCarousel(container) {
+    const images = container.querySelectorAll('.carousel-img');
+    let current = parseInt(container.dataset.current || 0);
+
+    const interval = setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+      container.dataset.current = current;
+    }, 10000);
+
+    carouselIntervals.set(container, interval);
+  }
+
+  function stopCarousel(container) {
+    clearInterval(carouselIntervals.get(container));
+    carouselIntervals.delete(container);
+  }
+
+  function nextImage(button) {
+    const container = button.closest('.carousel-box');
+    const images = container.querySelectorAll('.carousel-img');
+    let current = parseInt(container.dataset.current || 0);
+    images[current].classList.remove('active');
+    current = (current + 1) % images.length;
+    images[current].classList.add('active');
+    container.dataset.current = current;
+  }
+
+  function prevImage(button) {
+    const container = button.closest('.carousel-box');
+    const images = container.querySelectorAll('.carousel-img');
+    let current = parseInt(container.dataset.current || 0);
+    images[current].classList.remove('active');
+    current = (current - 1 + images.length) % images.length;
+    images[current].classList.add('active');
+    container.dataset.current = current;
+  }
+</script>
+
+<script>
+fetch('/api/obras')
+  .then(res => res.json())
+  .then(obras => {
+    const galeria = document.getElementById('galeria');
+
+    obras.forEach(obra => {
+      const obraDiv = document.createElement('div');
+      obraDiv.className = 'obra-galeria artwork-container horizontal';
+
+      const imagenesHtml = obra.imagenes.map((img, i) => {
+        return `<img src="${img}" class="carousel-img ${i === 0 ? 'active' : ''}" />`;
+      }).join('');
+
+      obraDiv.innerHTML = `
+        <div class="artwork-text obra-info">
+          <h2>${obra.titulo}</h2>
+          <p>${obra.descripcion}</p>
+          <p><strong>Medidas:</strong> ${obra.medidas}</p>
+          <p><strong>Materiales:</strong> ${obra.materiales}</p>
+        </div>
+        <div class="artwork-image obra-carrusel">
+          <div class="carousel-box">
+            ${imagenesHtml}
+            <button class="carousel-btn prev">❮</button>
+            <button class="carousel-btn next">❯</button>
+          </div>
+        </div>
+      `;
+
+      galeria.appendChild(obraDiv);
+
+      const imgs = obraDiv.querySelectorAll('.carousel-img');
+      let current = 0;
+
+      obraDiv.querySelector('.next').addEventListener('click', () => {
+        imgs[current].classList.remove('active');
+        current = (current + 1) % imgs.length;
+        imgs[current].classList.add('active');
+      });
+
+      obraDiv.querySelector('.prev').addEventListener('click', () => {
+        imgs[current].classList.remove('active');
+        current = (current - 1 + imgs.length) % imgs.length;
+        imgs[current].classList.add('active');
+      });
+    });
+  });
+</script>
+
+
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+</body>
+</html>

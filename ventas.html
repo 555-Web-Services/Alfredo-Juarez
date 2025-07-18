@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas - Alfredo Juarez</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #111; color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: white; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2em; text-align: center; }
+  </style>
+   <style>
+
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: "Expanded Super Bold", Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
+}
+
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 40s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+  /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #bbbb24;
+  background-color:#000;
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #f6f0e0;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+}
+
+  </style>
+</head>
+<body>
+ <header>
+    <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+    
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Página Principal</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería de Arte</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca de Alfredo Juarez</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar Sesion</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    
+      <h2>Compra Oficial</h2>
+     
+    <section id="tienda">
+  <h2>Tienda Oficial de Alfredo Juarez</h2>
+  <section id="productos" style="padding: 2em; background: #f9f9f9;">
+  <h2 style="text-align: center; font-family: Helvetica, sans-serif;">Obras y Música en Venta</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; margin-top: 2em;">
+
+    <!-- Producto 1: Cuadro de Matilde -->
+    <div class="producto" style="width: 250px; border: 1px solid #ccc; border-radius: 10px; padding: 1em; background: white; text-align: center;">
+      <img src="/img/Galeria/Matilde/Matilde1.jpeg" alt="Cuadro de Matilde" style="width: 100%; border-radius: 5px;">
+      <h3>Cuadro de Matilde</h3>
+      <p>$27,500 MXN</p>
+      <button onclick="agregarAlCarrito('Cuadro de Matilde', 27500)" style="padding: 0.5em 1em;">Agregar al carrito</button>
+    </div>
+
+    <!-- Producto 2: Flores Semiabstractas -->
+    <div class="producto" style="width: 250px; border: 1px solid #ccc; border-radius: 10px; padding: 1em; background: white; text-align: center;">
+      <img src="/img/Galeria/Flores semi abstractas/Flores semi abstractas (2).jpeg" alt="Flores Semiabstractas" style="width: 100%; border-radius: 5px;">
+      <h3>Flores Semiabstractas</h3>
+      <p>$27,500 MXN</p>
+      <button onclick="agregarAlCarrito('Flores Semiabstractas', 27500)" style="padding: 0.5em 1em;">Agregar al carrito</button>
+    </div>
+
+    <!-- Producto 3: Disco "Aunque no sea conmigo..." -->
+    <div class="producto" style="width: 250px; border: 1px solid #ccc; border-radius: 10px; padding: 1em; background: white; text-align: center;">
+      <img src="/img/Acerca de/Alfredo Juarez Aunque No Sea Conmigo.jpeg" alt="Disco Aunque no sea conmigo..." style="width: 100%; border-radius: 5px;">
+      <h3>Aunque no sea conmigo...</h3>
+      <p>$300 MXN</p>
+      <button onclick="agregarAlCarrito('Aunque no sea conmigo...', 300)" style="padding: 0.5em 1em;">Agregar al carrito</button>
+    </div>
+
+    <!-- Producto 4: Disco "Vámonos..." -->
+    <div class="producto" style="width: 250px; border: 1px solid #ccc; border-radius: 10px; padding: 1em; background: white; text-align: center;">
+      <img src="/img/Acerca de/Alfredo Juarez Vamonos.jpeg" alt="Disco Vámonos..." style="width: 100%; border-radius: 5px;">
+      <h3>Vámonos...</h3>
+      <p>$200 MXN</p>
+      <button onclick="agregarAlCarrito('Vámonos...', 200)" style="padding: 0.5em 1em;">Agregar al carrito</button>
+    </div>
+
+  </div>
+</section>
+
+</section>
+
+  </main>
+<button onclick="toggleCarrito()" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 0.7em 1.2em;
+  background-color: #bbbb24;
+  color: rgb(13, 13, 13);
+  border: none;
+  border-radius: 30px;
+  font-size: 1em;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+">
+  🛒 <b>Carrito</b> (<span id="carrito-contador">0</span>)
+</button>
+
+  
+  <footer style="background-color: #111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+<script>
+  const carrito = [];
+
+  function agregarAlCarrito(nombre, precio) {
+    const itemExistente = carrito.find(item => item.nombre === nombre);
+
+    if (itemExistente) {
+      itemExistente.cantidad++;
+    } else {
+      carrito.push({ nombre, precio, cantidad: 1 });
+    }
+
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const lista = document.getElementById('lista-carrito');
+    const total = document.getElementById('carrito-total');
+    const contador = document.getElementById('carrito-contador');
+
+    // SEGURIDAD: evita errores si no encuentra los elementos
+    if (!lista || !total || !contador) {
+      console.warn("Elementos del DOM no encontrados para actualizar el carrito.");
+      return;
+    }
+
+    lista.innerHTML = '';
+    let suma = 0;
+    let cantidadTotal = 0;
+
+    carrito.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.style.marginBottom = '0.5em';
+      li.innerHTML = `
+        ${item.nombre} (${item.cantidad}) - $${item.precio * item.cantidad}
+        <button onclick="eliminarDelCarrito(${index})" style="margin-left: 5px;">❌</button>
+      `;
+      lista.appendChild(li);
+      suma += item.precio * item.cantidad;
+      cantidadTotal += item.cantidad;
+    });
+
+    total.textContent = suma;
+    contador.textContent = cantidadTotal;
+  }
+
+  function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    actualizarCarrito();
+  }
+
+  function toggleCarrito() {
+    const panel = document.getElementById('carrito-panel');
+    panel.style.right = panel.style.right === '0px' ? '-400px' : '0px';
+  }
+
+  function irACheckout() {
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
+
+    toggleCarrito();
+    alert("Aquí irá el formulario de checkout...");
+  }
+</script>
+<script>
+  function irACheckout() {
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
+
+    toggleCarrito(); // cerrar panel lateral
+    document.getElementById("checkout-form").style.display = "block";
+  }
+
+  function cerrarCheckout() {
+    document.getElementById("checkout-form").style.display = "none";
+  }
+
+  function procesarPago() {
+  const nombre = document.getElementById("nombre").value.trim();
+  const correo = document.getElementById("correo").value.trim();
+  const direccion = document.getElementById("direccion").value.trim();
+
+  if (!nombre || !correo || !direccion) {
+    alert("Por favor llena todos los campos.");
+    return false;
+  }
+
+  fetch('/enviar-confirmacion', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, correo, direccion, carrito })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert("¡Gracias por tu compra, " + nombre + "! Se envió la confirmación a " + correo);
+      cerrarCheckout();
+      carrito.length = 0;
+      actualizarCarrito();
+    } else {
+      alert("Hubo un error al enviar el correo.");
+    }
+  })
+  .catch(err => {
+    console.error("Error:", err);
+    alert("No se pudo enviar el pedido.");
+  });
+
+  return false; // evita recarga
+}
+</script>
+
+<!-- Panel lateral del carrito -->
+<div id="carrito-panel" style="
+  position: fixed;
+  top: 0; right: -400px;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  padding: 1em;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  z-index: 9998;
+">
+  <h3>Tu carrito</h3>
+  <ul id="lista-carrito" style="list-style: none; padding: 0; margin: 0;"></ul>
+  <p><strong>Total:</strong> $<span id="carrito-total">0</span> MXN</p>
+  <button onclick="irACheckout()" style="margin-top: 1em;">Continuar al pago</button>
+  <button onclick="toggleCarrito()" style="margin-top: 0.5em;">Cerrar</button>
+</div>
+<!-- Formulario de Checkout -->
+<div id="checkout-form" style="
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 2em;
+  width: 90%;
+  max-width: 400px;
+  z-index: 10000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: none;
+">
+  <h3>Finalizar compra</h3>
+  <form id="formularioCheckout" onsubmit="return procesarPago();">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" required style="width: 100%; margin-bottom: 1em;"><br>
+
+    <label for="correo">Correo electrónico:</label><br>
+    <input type="email" id="correo" required style="width: 100%; margin-bottom: 1em;"><br>
+
+    <label for="direccion">Dirección de envío:</label><br>
+    <textarea id="direccion" required style="width: 100%; margin-bottom: 1em;"></textarea><br>
+
+    <button type="submit" style="margin-right: 1em;">Pagar</button>
+    <button type="button" onclick="cerrarCheckout()">Cancelar</button>
+  </form>
+</div>
+
+</body>
+</html>

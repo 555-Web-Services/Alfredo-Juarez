@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Galería - Alfredo Juárez</title>
+<style>
+  body {
+    font-family: "Expanded Super Bold", Helvetica, sans-serif;
+    background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+  }
+
+  .carrusel {
+    display: flex;
+    width: 200%;
+    animation: mover 40s linear infinite;
+    height: 100%;
+  }
+
+  .carrusel img {
+    display: block;
+    width: calc(100% / 14);
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  @keyframes mover {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .logo-central {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    z-index: 10;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    background: #333;
+    margin: 0;
+  }
+
+  nav ul li {
+    margin: 0 1em;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+  }
+
+  nav ul li a:hover {
+    background: #555;
+  }
+
+  .admin-galeria {
+    padding: 2em;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .admin-galeria form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 3em;
+  }
+
+  .admin-galeria input,
+  .admin-galeria textarea,
+  .admin-galeria button {
+    padding: 0.8em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .admin-galeria button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+  }
+
+  #lista-obras .obra {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 2em;
+    background: #fff;
+  }
+
+  .obra .imagenes-obra {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-top: 1em;
+  }
+
+  .obra .imagenes-obra img {
+    max-height: 200px;
+    border-radius: 5px;
+  }
+
+  .botones {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    margin-top: 1em;
+  }
+
+  footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+  }
+
+  /* ==== MENÚ RESPONSIVO DESDE LA IZQUIERDA ==== */
+  .menu-icon {
+    display: none;
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 80%;
+      max-width: 300px;
+      background-color: #f5f0e6; /* mismo fondo del sitio */
+      padding-top: 100px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul.show {
+      left: 0;
+    }
+
+    nav ul li {
+      margin: 0;
+      padding: 1em;
+      text-align: left;
+      border-bottom: 1px solid #d4c1a3;
+    }
+
+    nav ul li a {
+      color: #0f0f0f; /* color de texto como en títulos */
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 0.5em 1em;
+    }
+
+    .menu-icon {
+      display: block;
+    }
+  }
+</style>
+
+
+</head>
+<body>
+  <header>
+    <div class="carrusel">
+     <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      <li><a href="login.html">Iniciar Sesión</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="admin-galeria">
+      <h2>Agregar Nueva Obra</h2>
+      <form id="form-obra" enctype="multipart/form-data">
+        <input type="text" name="titulo" placeholder="Título de la obra" required>
+        <textarea name="descripcion" placeholder="Descripción de la obra" required></textarea>
+        <input type="text" name="medidas" placeholder="Medidas (Ej. 1.70 x 1.40 m)" required>
+        <input type="text" name="materiales" placeholder="Materiales (Ej. Acrílico y Arena)" required>
+        <input type="file" name="imagenes[]" multiple accept="image/*">
+        <div id="imagenes-actuales"></div>
+        <button type="submit">Guardar Obra</button>
+      </form>
+      <h2>Obras Agregadas</h2>
+      <div id="lista-obras"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+ <script>
+const baseUrl = `${window.location.protocol}//${window.location.hostname}:3000`;
+
+const form = document.getElementById("form-obra");
+const listaObras = document.getElementById("lista-obras");
+const inputImagenes = form.querySelector('input[name="imagenes[]"]');
+const previewContainer = document.createElement('div');
+previewContainer.id = "preview-imagenes";
+inputImagenes.parentNode.insertBefore(previewContainer, inputImagenes.nextSibling);
+
+let obras = [];
+let obraEditandoId = null;
+let imagenesExistentes = [];
+
+inputImagenes.addEventListener("change", () => {
+  previewContainer.innerHTML = "";
+  const files = inputImagenes.files;
+  for (const file of files) {
+    const url = URL.createObjectURL(file);
+    const img = document.createElement("img");
+    img.src = url;
+    img.style.maxHeight = "100px";
+    img.style.marginRight = "10px";
+    previewContainer.appendChild(img);
+  }
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  if (obraEditandoId) {
+    const payload = {
+      titulo: data.get("titulo"),
+      descripcion: data.get("descripcion"),
+      medidas: data.get("medidas"),
+      materiales: data.get("materiales"),
+      imagenes: imagenesExistentes
+    };
+
+    try {
+      await fetch(`${baseUrl}/actualizar-obra/${obraEditandoId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      obraEditandoId = null;
+      imagenesExistentes = [];
+      form.reset();
+      previewContainer.innerHTML = "";
+      cargarObras();
+    } catch (err) {
+      console.error('Error al actualizar obra:', err);
+    }
+  } else {
+    try {
+      await fetch(`${baseUrl}/api/obras`, {
+        method: 'POST',
+        body: data
+      });
+      form.reset();
+      previewContainer.innerHTML = "";
+      cargarObras();
+    } catch (err) {
+      console.error('Error al guardar obra:', err);
+    }
+  }
+});
+
+function cargarObras() {
+  fetch(`${baseUrl}/api/obras`)
+    .then(res => res.json())
+    .then(data => {
+      obras = data;
+      renderObras();
+    });
+}
+
+function renderObras() {
+  listaObras.innerHTML = "";
+  obras.forEach((obra) => {
+    const div = document.createElement("div");
+    div.className = "obra";
+    div.innerHTML = `
+      <h3>${obra.titulo}</h3>
+      <p>${obra.descripcion}</p>
+      <p><strong>Medidas:</strong> ${obra.medidas}</p>
+      <p><strong>Materiales:</strong> ${obra.materiales}</p>
+
+      <div class="carrusel-obra">
+        <div class="imagenes-obra" id="carrusel-${obra.id}">
+  ${obra.imagenes && obra.imagenes.length > 0 
+    ? obra.imagenes.map(src => `<img src="${src}" alt="Imagen de la obra">`).join('')
+    : '<p style="color: #888; font-style: italic;">(Sin imágenes)</p>'}
+</div>
+
+      </div>
+
+      <div class="botones">
+        <button class="editar" onclick="editarObra(${obra.id})">Editar</button>
+        <button onclick="eliminarObra(${obra.id})">Eliminar</button>
+      </div>
+    `;
+    listaObras.appendChild(div);
+  });
+}
+
+function eliminarObra(id) {
+  fetch(`${baseUrl}/api/obras/${id}`, { method: 'DELETE' })
+    .then(() => cargarObras());
+}
+
+function editarObra(id) {
+  const obra = obras.find(o => o.id === id);
+  if (!obra) return;
+
+  form.titulo.value = obra.titulo;
+  form.descripcion.value = obra.descripcion;
+  form.medidas.value = obra.medidas;
+  form.materiales.value = obra.materiales;
+  imagenesExistentes = obra.imagenes;
+
+  previewContainer.innerHTML = "";
+  imagenesExistentes.forEach(fullUrl => {
+  const img = document.createElement("img");
+  img.src = fullUrl;
+  img.style.maxHeight = "100px";
+  img.style.marginRight = "10px";
+  previewContainer.appendChild(img);
+});
+
+
+  obraEditandoId = id;
+  window.scrollTo({ top: form.offsetTop, behavior: 'smooth' });
+}
+
+cargarObras();
+</script>
+<script>
+  function toggleMenu() {
+    document.querySelector("nav ul").classList.toggle("show");
+  }
+
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav ul");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+
+
+
+</body>
+</html>
