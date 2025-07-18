@@ -198,7 +198,7 @@ nav ul li a {
       <img src="img/Galeria/Matilde/Matilde1.jpeg" alt="Cuadro de Matilde" style="width: 100%; border-radius: 5px;">
       <h3>Cuadro de Matilde</h3>
       <p>$27,500 MXN</p>
-      <button onclick="agregarAlCarrito('Cuadro de Matilde', 27500,src="img/Galeria/Matilde/Matilde1.jpeg")" style="padding: 0.5em 1em;">Agregar al carrito</button>
+      <button onclick="agregarAlCarrito('Cuadro de Matilde', 27500)" style="padding: 0.5em 1em;">Agregar al carrito</button>
     </div>
 
     <!-- Producto 2: Flores Semiabstractas -->
@@ -273,7 +273,7 @@ nav ul li a {
 <script>
   const carrito = [];
 
-  function agregarAlCarrito(nombre, precio,imagen) {
+  function agregarAlCarrito(nombre, precio) {
     const itemExistente = carrito.find(item => item.nombre === nombre);
 
     if (itemExistente) {
