@@ -351,7 +351,7 @@ nav ul li a {
   </footer>
  <script>
   window.addEventListener('DOMContentLoaded', () => {
-    fetch(`http://${window.location.hostname}:3000/ultimos-articulos`)
+    fetch('https://alfredo-backend.onrender.com/ultimos-articulos')
       .then(response => response.json())
       .then(articulos => {
         const novedadesSection = document.getElementById('novedades');
@@ -387,7 +387,7 @@ nav ul li a {
     function formatImageUrl(imagen) {
       if (!imagen) return '';
       if (imagen.startsWith('http')) return imagen;
-      return `http://${window.location.hostname}:3000/uploads/${imagen}`;
+      return `https://alfredo-backend.onrender.com/uploads/${imagen}`;
     }
   });
 </script>
