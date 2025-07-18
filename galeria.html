@@ -343,7 +343,7 @@ nav ul li a {
 </script>
 
 <script>
-fetch('/api/obras')
+fetch('https://alfredo-backend.onrender.com/api/obras')
   .then(res => res.json())
   .then(obras => {
     const galeria = document.getElementById('galeria');
@@ -353,7 +353,7 @@ fetch('/api/obras')
       obraDiv.className = 'obra-galeria artwork-container horizontal';
 
       const imagenesHtml = obra.imagenes.map((img, i) => {
-        return `<img src="${img}" class="carousel-img ${i === 0 ? 'active' : ''}" />`;
+        return `<img src="https://alfredo-backend.onrender.com/uploads/${img}" class="carousel-img ${i === 0 ? 'active' : ''}" />`;
       }).join('');
 
       obraDiv.innerHTML = `
@@ -389,8 +389,13 @@ fetch('/api/obras')
         imgs[current].classList.add('active');
       });
     });
+  })
+  .catch(err => {
+    console.error("Error al cargar las obras:", err);
+    document.getElementById('galeria').innerHTML = '<p>Error al cargar las obras de arte.</p>';
   });
 </script>
+
 
 
 <script>
