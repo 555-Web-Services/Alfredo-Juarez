@@ -353,17 +353,18 @@ nav ul li a {
         }
       });
 
-      // Pausar los demás cuando se inicia uno
+      // Pausar otros audios al iniciar este
       audio.addEventListener("play", function () {
-        audios.forEach(otherAudio => {
-          if (otherAudio !== audio) {
-            otherAudio.pause();
+        audios.forEach(other => {
+          if (other !== audio) {
+            other.pause();
           }
         });
       });
     });
   });
 </script>
+
 
 <script>
   function toggleMenu() {
