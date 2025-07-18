@@ -353,8 +353,9 @@ fetch('https://alfredo-backend.onrender.com/api/obras')
       obraDiv.className = 'obra-galeria artwork-container horizontal';
 
       const imagenesHtml = obra.imagenes.map((img, i) => {
-        return `<img src="https://alfredo-backend.onrender.com/uploads/${img}" class="carousel-img ${i === 0 ? 'active' : ''}" />`;
-      }).join('');
+  return `<img src="${img}" class="carousel-img ${i === 0 ? 'active' : ''}" />`;
+}).join('');
+
 
       obraDiv.innerHTML = `
         <div class="artwork-text obra-info">
