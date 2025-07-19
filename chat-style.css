@@ -11,8 +11,8 @@
 
 /* Control de tamaño de la imagen */
 #chat-toggle img {
-  width: 10px;   /* ajusta este valor según el tamaño deseado */
-  height: 10px;
+  width: 60px;   /* ajusta este valor según el tamaño deseado */
+  height: 60px;
   border-radius: 50%; /* si quieres que siga siendo un botón circular */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
