@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const chatBox = document.createElement('div');
   chatBox.innerHTML = `
-    <div id="chat-toggle"><b>Chat</b></div>
+    <div id="chat-toggle"><img src="img/chat.png" alt="Imagen chat"></div>
     <div id="chat-container" style="display:none;">
       <div id="chat-messages"></div>
       <input type="text" id="chat-input" placeholder="Escribe un mensaje..." />
