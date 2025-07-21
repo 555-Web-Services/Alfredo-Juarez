@@ -284,38 +284,21 @@ nav ul li a {
 
 
   </style>
- <style>
-.mi-section {
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.redes-sociales {
-  background-image: url("img/Imagen redes desktop.png");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  border-radius: 20px;
+   <style>
+ .redes-sociales {
+  background: linear-gradient(to bottom, #f5f0e6, #d9c5a5); /* Degradado por defecto */
   padding: 60px 20px;
   color: #fff;
   text-align: center;
   display: flex;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
 }
 
+/* Contenedor centrado */
 .contenedor-redes-wrapper {
   width: 100%;
   max-width: 1000px;
   padding: 0 15px;
-  position: relative;
-  z-index: 1;
-  margin: 0 auto; /* Asegura centrado horizontal */
-  display: flex;
-  justify-content: center;
 }
 
 .contenedor-redes {
@@ -323,10 +306,9 @@ nav ul li a {
   padding: 40px 30px;
   border-radius: 16px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 100%;
 }
 
+/* Títulos y párrafo */
 .redes-sociales h2 {
   font-size: 2em;
   font-family: 'Akira Expanded Super Bold', sans-serif;
@@ -339,6 +321,7 @@ nav ul li a {
   margin-bottom: 30px;
 }
 
+/* Íconos de redes */
 .iconos-redes {
   display: flex;
   justify-content: center;
@@ -358,30 +341,18 @@ nav ul li a {
   opacity: 0.8;
 }
 
-/* ==== VERSIÓN MÓVIL ==== */
+/* ===== Responsive: solo en móviles cambia a imagen de fondo ===== */
 @media (max-width: 768px) {
   .redes-sociales {
-    background-image: url("img/imagen mi vertice.png");
-    background-position: bottom;
+    background: url("img/imagen mi vertice.png") no-repeat center center;
     background-size: cover;
     border-radius: 20px;
     padding: 40px 15px;
-    max-width: 100%; /* Asegura que no exceda el ancho */
-    margin: 0 auto;
-  }
-
-  .contenedor-redes-wrapper {
-    padding: 0 10px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
   }
 
   .contenedor-redes {
     padding: 30px 20px;
     border-radius: 12px;
-    width: 100%;
-    max-width: 100%;
   }
 
   .redes-sociales h2 {
@@ -398,8 +369,25 @@ nav ul li a {
   }
 }
 
-</style>
+@media (max-width: 480px) {
+  .redes-sociales {
+    padding: 30px 10px;
+  }
 
+  .contenedor-redes {
+    padding: 20px 15px;
+  }
+
+  .iconos-redes {
+    gap: 15px;
+  }
+
+  .iconos-redes a img {
+    width: 56px;
+    height: 56px;
+  }
+}
+</style>
    <style>
     .titulo-alfredo {
   text-align: center;
@@ -599,8 +587,7 @@ nav ul li a {
 </section>
 
 
-  <div class="mi-section">
-  <section class="redes-sociales">
+   <section class="redes-sociales">
     <div class="contenedor-redes-wrapper">
     <div class="contenedor-redes">
     <h2>Redes Sociales y Música</h2>
@@ -629,7 +616,6 @@ nav ul li a {
   </div>
     </div>
   </section>
-  </div>
 </main>
 
     <footer style="background-color: #111111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
