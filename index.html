@@ -313,6 +313,9 @@ nav ul li a {
   padding: 0 15px;
   position: relative;
   z-index: 1;
+  margin: 0 auto; /* Asegura centrado horizontal */
+  display: flex;
+  justify-content: center;
 }
 
 .contenedor-redes {
@@ -320,6 +323,8 @@ nav ul li a {
   padding: 40px 30px;
   border-radius: 16px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 100%;
 }
 
 .redes-sociales h2 {
@@ -361,14 +366,22 @@ nav ul li a {
     background-size: cover;
     border-radius: 20px;
     padding: 40px 15px;
-    /* AÑADE ESTO: */
+    max-width: 100%; /* Asegura que no exceda el ancho */
     margin: 0 auto;
-    max-width: 95%;
+  }
+
+  .contenedor-redes-wrapper {
+    padding: 0 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
   }
 
   .contenedor-redes {
     padding: 30px 20px;
     border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .redes-sociales h2 {
@@ -384,6 +397,7 @@ nav ul li a {
     height: 40px;
   }
 }
+
 </style>
 
    <style>
