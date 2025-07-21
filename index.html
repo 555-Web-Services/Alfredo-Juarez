@@ -305,14 +305,129 @@ nav ul li a {
   transform: scale(1.1);
   opacity: 0.8;
 }
+  </style>
+  <style>
+    .titulo-alfredo {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.titulo-alfredo h1 {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-alfredo h1 img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .titulo-alfredo {
+    padding: 20px 10px;
+  }
+
+  .titulo-alfredo h1 img {
+    max-width: 100%;
+  }
+
+  .titulo-alfredo p {
+    font-size: 1em;
+  }
+}
 
   </style>
+<style>
+
+.portada-aunque {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.portada-aunque h1 {
+  margin: 0;
+}
+
+.portada-aunque h1 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px; /* esquinas redondeadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Opcional: mejora aún más en pantallas pequeñas */
+@media (max-width: 768px) {
+  .portada-aunque {
+    padding: 20px 10px;
+  }
+
+  .portada-aunque h1 img {
+    max-width: 90%;
+    border-radius: 12px;
+  }
+}
+
+
+</style>
+
+<style>
+ .palabras-cambio {
+  position: relative;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #2f2f2f;
+  overflow: hidden;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.palabras-cambio span {
+  position: absolute;
+  opacity: 0;
+  animation: fadeWords 9s infinite;
+  width: 100%;
+  text-align: center;
+}
+
+.palabras-cambio span:nth-child(1) {
+  animation-delay: 0s;
+}
+.palabras-cambio span:nth-child(2) {
+  animation-delay: 3s;
+}
+.palabras-cambio span:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes fadeWords {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(0); }
+  40% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 0; }
+}
+
+
+</style>
   <main>
   <section class="titulo-alfredo">
-    <h1>Alfredo Juárez</h1>
-    <div class="decorador-linea"></div>
-    <p>Artista visual y musical que transforma emociones en arte.</p>
-  </section>
+  <h1><img src="img/Nuevo logo.png" width="600" height="250" alt="Descripción de la imagen"></h1>
+  <div class="portada-aunque">
+  <h1><img src="img/Portada Aunque no sea conmigo.jpeg" width="400" height="400" alt="Portada"></h1>
+</div>
+<div class="palabras-cambio">
+  <span>Arte</span>
+  <span>Música</span>
+  <span>Pintura</span>
+</div>
+</section>
 
   <section>
   <h2 style="text-align:center;">📰 Novedades</h2>
