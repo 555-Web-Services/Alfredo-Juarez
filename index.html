@@ -184,7 +184,26 @@ nav ul li a {
       <li><a href="login.html">Iniciar Sesión</a></li>
     </ul>
   </nav>
- 
+ <div class="fondo-degradado-menu">
+<section class="barra-menu">
+  <div class="novedades-caja-menu">&nbsp&nbsp&nbsp&nbsp&nbspMENU&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+  <div class="menu-caja" onclick="toggleMenu()">☰</div>
+</section>
+
+<section class="titulo-alfredo">
+<h1><img src="img/Nuevo logo.png" width="500" height="150" alt="Descripción de la imagen"></h1>
+</section>
+</div>
+
+ <section>
+  <div class="portada-aunque">
+  <h1><img src="img/Contraportada Aunque no sea conmigo.jpeg" width="400" height="400" alt="Portada"></h1>
+</div>
+<div class="palabras-cambio">
+  <span>Arte</span>
+  <span>Música</span>
+  <span>Pintura</span>
+</div>
 
   <style>
    .novedades-section {
@@ -307,17 +326,204 @@ nav ul li a {
 }
 
   </style>
-  <main>
-  <section class="titulo-alfredo">
-    <h1>Alfredo Juárez</h1>
-    <div class="decorador-linea"></div>
-    <p>Artista visual y musical que transforma emociones en arte.</p>
-  </section>
+   <style>
+    .titulo-alfredo {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
 
-  <section>
-  <h2 style="text-align:center;">📰 Novedades</h2>
+.titulo-alfredo h1 {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-alfredo h1 img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .titulo-alfredo {
+    padding: 5px 10px;
+  }
+
+  .titulo-alfredo h1 img {
+    max-width: 100%;
+  }
+
+  .titulo-alfredo p {
+    font-size: 1em;
+  }
+}
+
+  </style>
+<style>
+
+.portada-aunque {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.portada-aunque h1 {
+  margin: 0;
+}
+
+.portada-aunque h1 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px; /* esquinas redondeadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Opcional: mejora aún más en pantallas pequeñas */
+@media (max-width: 768px) {
+  .portada-aunque {
+    padding: 10px 10px;
+  }
+
+  .portada-aunque h1 img {
+    max-width: 90%;
+    border-radius: 12px;
+  }
+}
+
+
+</style>
+
+<style>
+ .palabras-cambio {
+  position: relative;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #2f2f2f;
+  overflow: hidden;
+  margin-top: 1px;
+  text-align: center;
+}
+
+.palabras-cambio span {
+  position: absolute;
+  opacity: 0;
+  animation: fadeWords 9s infinite;
+  width: 100%;
+  text-align: center;
+}
+
+.palabras-cambio span:nth-child(1) {
+  animation-delay: 0s;
+}
+.palabras-cambio span:nth-child(2) {
+  animation-delay: 3s;
+}
+.palabras-cambio span:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes fadeWords {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(0); }
+  40% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 0; }
+}
+
+
+</style>
+<style>
+.barra-novedades {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 40px auto 30px auto;
+  flex-wrap: wrap;
+}
+
+/* Caja blanca con texto */
+.novedades-caja {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+
+/* Botón hamburguesa redondo */
+.menu-caja {
+  background-color: #c87b07;
+  color: white;
+  font-size: 1.6em;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .menu-caja {
+    display: none;
+  }
+}
+.barra-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 10px auto 5px auto;
+  flex-wrap: wrap;
+}
+
+/* Caja blanca con texto */
+.novedades-caja-menu {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .novedades-caja-menu {
+    display: none;
+  }
+}
+.fondo-degradado-menu {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  padding: 20px 0 10px;
+}
+
+</style>
+  <main>
+  <section class="barra-novedades">
+  <div class="novedades-caja">NOVEDADES</div>
+</section>
+
+<section>
   <div id="novedades"></div>
 </section>
+
 
   <section class="redes-sociales">
     <h2>Redes Sociales y Música</h2>
@@ -421,7 +627,7 @@ nav ul li a {
 <script>
   document.addEventListener('click', function (event) {
     const menu = document.querySelector("nav");
-    const menuIcon = document.querySelector(".menu-icon");
+    const menuIcon = document.querySelector(".menu-caja");
 
     // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
     if (menu.classList.contains("show") &&
