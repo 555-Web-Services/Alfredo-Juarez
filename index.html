@@ -169,7 +169,6 @@ nav ul li a {
 
     <!-- Logo estático encima del carrusel -->
     <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
   <nav>
     
@@ -429,10 +428,14 @@ nav ul li a {
 </div>
 </section>
 
-  <section>
-  <h2 style="text-align:center;">📰 Novedades</h2>
-  <div id="novedades"></div>
+  <section class="barra-novedades">
+  <div class="novedades-texto">NOVEDADES</div>
+  <div class="nuevo-menu-icon" onclick="toggleMenu()">☰</div>
 </section>
+
+    <section>
+     <div id="novedades"></div>
+    </section>
 
   <section class="redes-sociales">
     <h2>Redes Sociales y Música</h2>
@@ -536,7 +539,7 @@ nav ul li a {
 <script>
   document.addEventListener('click', function (event) {
     const menu = document.querySelector("nav");
-    const menuIcon = document.querySelector(".menu-icon");
+    const menuIcon = document.querySelector(".nuevo-menu-icon");
 
     // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
     if (menu.classList.contains("show") &&
