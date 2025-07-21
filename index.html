@@ -101,6 +101,7 @@ nav ul li a {
   cursor: pointer;
   color: #bbbb24;
   background-color:#000;
+
 }
 
 /* MENU RESPONSIVO */
@@ -115,7 +116,7 @@ nav ul li a {
     left: -100%;
     width: 75%;
     height: 100vh;
-    background-color: #f6f0e0;
+    background-color: #bbbb24;
     z-index: 90;
     overflow-y: auto;
     transition: left 0.3s ease-in-out;
@@ -136,104 +137,9 @@ nav ul li a {
 }
 
   </style>
-<style>
-  body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #0d1b2a;
-    color: #ffffff;
-  }
-
-  .album {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #1b263b;
-    border-radius: 12px;
-    margin: 2em auto;
-    padding: 1.5em;
-    max-width: 1000px;
-    gap: 2em;
-    align-items: flex-start;
-  }
-
- .album-image {
-  width: 500px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-  .album-image img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 1em;
-}
-
-  .album-info {
-    flex: 1;
-  }
-
-  .album-info h2 {
-    margin-top: 0;
-  }
-
-  .album-info ul {
-    padding-left: 1em;
-  }
-
-  .album-info audio {
-  margin-top: 0.5em;
-  width: 100%;
-  max-width: 500px;  /* reduce el ancho */
-  transform: scaleY(1);  /* aumenta la altura */
-  transform-origin: top;   /* opcional: asegura que se expanda hacia abajo */
-  display: block;
-  }
-
-  .platforms {
-    margin-top: 1.5em;
-    display: flex;
-    gap: 1em;
-    flex-wrap: wrap;
-  }
-
-  .platforms a img {
-    width: 40px;
-    height: auto;
-    transition: transform 0.2s ease;
-  }
-
-  .platforms a img:hover {
-    transform: scale(1.1);
-  }
-
-  @media (max-width: 768px) {
-    .album {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .album-image {
-      width: 100%;
-      height: auto;
-    }
-
-    .album-image img {
-      height: auto;
-    }
-
-    .album-info audio {
-      width: 90%;
-      max-width: none;
-    }
-  }
-  </style>
 
 <!-- En el <head> -->
-<link rel="stylesheet" href="/chat-style.css">
+<link rel="stylesheet" href="https://555-web-services.github.io/Alfredo-Juarez/chat-style.css">
 </head>
 <body>
   <header>
@@ -263,6 +169,7 @@ nav ul li a {
 
     <!-- Logo estático encima del carrusel -->
     <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
   <nav>
     
@@ -278,28 +185,7 @@ nav ul li a {
     </ul>
   </nav>
  
-<div class="fondo-degradado-menu">
-<section class="barra-menu">
-  <div class="novedades-caja-menu">&nbsp&nbsp&nbsp&nbsp&nbspMENU&nbsp&nbsp&nbsp&nbsp&nbsp</div>
-  <div class="menu-caja" onclick="toggleMenu()">☰</div>
-</section>
 
-<section class="titulo-alfredo">
-<h1><img src="img/Nuevo logo.png" width="500" height="150" alt="Descripción de la imagen"></h1>
-</section>
-</div>
-
- <section>
-  <div class="portada-aunque">
-  <h1><img src="img/Contraportada Aunque no sea conmigo.jpeg" width="400" height="400" alt="Portada"></h1>
-</div>
-<div class="palabras-cambio">
-  <span>Arte</span>
-  <span>Música</span>
-  <span>Pintura</span>
-</div>
-
-</section>
   <style>
    .novedades-section {
   background: linear-gradient(to bottom, #f5f0e6, #d9c5a5);
@@ -421,205 +307,17 @@ nav ul li a {
 }
 
   </style>
-  <style>
-    .titulo-alfredo {
-  text-align: center;
-  padding: 40px 20px 20px;
-}
-
-.titulo-alfredo h1 {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.titulo-alfredo h1 img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Responsive para móviles */
-@media (max-width: 768px) {
-  .titulo-alfredo {
-    padding: 5px 10px;
-  }
-
-  .titulo-alfredo h1 img {
-    max-width: 100%;
-  }
-
-  .titulo-alfredo p {
-    font-size: 1em;
-  }
-}
-
-  </style>
-<style>
-
-.portada-aunque {
-  text-align: center;
-  padding: 30px 20px;
-}
-
-.portada-aunque h1 {
-  margin: 0;
-}
-
-.portada-aunque h1 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px; /* esquinas redondeadas */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Opcional: mejora aún más en pantallas pequeñas */
-@media (max-width: 768px) {
-  .portada-aunque {
-    padding: 10px 10px;
-  }
-
-  .portada-aunque h1 img {
-    max-width: 90%;
-    border-radius: 12px;
-  }
-}
-
-
-</style>
-
-<style>
- .palabras-cambio {
-  position: relative;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  font-weight: bold;
-  color: #2f2f2f;
-  overflow: hidden;
-  margin-top: 1px;
-  text-align: center;
-}
-
-.palabras-cambio span {
-  position: absolute;
-  opacity: 0;
-  animation: fadeWords 9s infinite;
-  width: 100%;
-  text-align: center;
-}
-
-.palabras-cambio span:nth-child(1) {
-  animation-delay: 0s;
-}
-.palabras-cambio span:nth-child(2) {
-  animation-delay: 3s;
-}
-.palabras-cambio span:nth-child(3) {
-  animation-delay: 6s;
-}
-
-@keyframes fadeWords {
-  0% { opacity: 0; transform: translateY(10px); }
-  10% { opacity: 1; transform: translateY(0); }
-  30% { opacity: 1; transform: translateY(0); }
-  40% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 0; }
-}
-
-
-</style>
-<style>
-.barra-novedades {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin: 40px auto 30px auto;
-  flex-wrap: wrap;
-}
-
-/* Caja blanca con texto */
-.novedades-caja {
-  background-color: #ffffff;
-  color: #000;
-  font-weight: bold;
-  font-size: 1.1em;
-  padding: 10px 24px;
-  border-radius: 999px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  font-family: 'Expanded Super Bold', sans-serif;
-  letter-spacing: 0.35em;
-  text-align: center;
-}
-
-/* Botón hamburguesa redondo */
-.menu-caja {
-  background-color: #c87b07;
-  color: white;
-  font-size: 1.6em;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-/* Solo visible en móvil */
-@media (min-width: 769px) {
-  .menu-caja {
-    display: none;
-  }
-}
-.barra-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin: 10px auto 5px auto;
-  flex-wrap: wrap;
-}
-
-/* Caja blanca con texto */
-.novedades-caja-menu {
-  background-color: #ffffff;
-  color: #000;
-  font-weight: bold;
-  font-size: 1.1em;
-  padding: 10px 24px;
-  border-radius: 999px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  font-family: 'Expanded Super Bold', sans-serif;
-  letter-spacing: 0.35em;
-  text-align: center;
-}
-/* Solo visible en móvil */
-@media (min-width: 769px) {
-  .novedades-caja-menu {
-    display: none;
-  }
-}
-.fondo-degradado-menu {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
-  padding: 20px 0 10px;
-}
-
-</style>
   <main>
+  <section class="titulo-alfredo">
+    <h1>Alfredo Juárez</h1>
+    <div class="decorador-linea"></div>
+    <p>Artista visual y musical que transforma emociones en arte.</p>
+  </section>
 
-<section class="barra-novedades">
-  <div class="novedades-caja">NOVEDADES</div>
-</section>
-
-<section>
+  <section>
+  <h2 style="text-align:center;">📰 Novedades</h2>
   <div id="novedades"></div>
 </section>
-
 
   <section class="redes-sociales">
     <h2>Redes Sociales y Música</h2>
@@ -703,7 +401,7 @@ nav ul li a {
 <script>
   document.addEventListener('click', function (event) {
     const menu = document.querySelector("nav");
-    const menuIcon = document.querySelector(".menu-caja");
+    const menuIcon = document.querySelector(".menu-icon");
 
     // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
     if (menu.classList.contains("show") &&
@@ -723,7 +421,7 @@ nav ul li a {
 <script>
   document.addEventListener('click', function (event) {
     const menu = document.querySelector("nav");
-    const menuIcon = document.querySelector(".menu-caja");
+    const menuIcon = document.querySelector(".menu-icon");
 
     // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
     if (menu.classList.contains("show") &&
