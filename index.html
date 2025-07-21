@@ -72,7 +72,7 @@
     height: 90%; /* se adapta mejor */
   }
 
- /* === MENÚ DESKTOP === */
+/* MENU DESKTOP */
 nav ul {
   display: flex;
   justify-content: center;
@@ -90,7 +90,7 @@ nav ul li a {
   font-weight: bold;
 }
 
-/* === ICONO DE MENÚ (oculto en escritorio) === */
+/* ICONO DE MENU */
 .menu-icon {
   display: none;
   font-size: 2em;
@@ -100,12 +100,10 @@ nav ul li a {
   z-index: 100;
   cursor: pointer;
   color: #bbbb24;
-  background-color: #000;
-  padding: 0.2em 0.4em;
-  border-radius: 6px;
+  background-color:#000;
 }
 
-/* === MENÚ RESPONSIVO === */
+/* MENU RESPONSIVO */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -117,12 +115,10 @@ nav ul li a {
     left: -100%;
     width: 75%;
     height: 100vh;
-    background-color: #bbbb24;
+    background-color: #f6f0e0;
     z-index: 90;
     overflow-y: auto;
     transition: left 0.3s ease-in-out;
-    flex-direction: column;
-    padding-top: 60px; /* espacio para el icono */
   }
 
   nav.show {
@@ -131,13 +127,11 @@ nav ul li a {
 
   nav ul {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: start;
     padding: 2em;
     gap: 1.5em;
-    background-color: transparent; /* evita doble fondo */
   }
 }
-
 
 }
 
