@@ -136,6 +136,57 @@ nav ul li a {
 }
 
   </style>
+  <style>
+  /* Botón hamburguesa redondo */
+.menu-caja {
+  background-color: #c87b07;
+  color: white;
+  font-size: 1.6em;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .menu-caja {
+    display: none;
+  }
+}
+.barra-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 10px auto 5px auto;
+  flex-wrap: wrap;
+}
+
+/* Caja blanca con texto */
+.novedades-caja-menu {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .novedades-caja-menu {
+    display: none;
+  }
+}
+</style>
 </head>
 <body>
  <header>
@@ -166,7 +217,6 @@ nav ul li a {
     <!-- Logo estático encima del carrusel -->
     <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
     
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
     
   </header>
   
@@ -182,6 +232,11 @@ nav ul li a {
       <li><a href="login.html">Iniciar Sesion</a></li>
     </ul>
   </nav>
+
+<section class="barra-menu">
+  <div class="novedades-caja-menu">&nbsp&nbsp&nbsp&nbsp&nbspMENU&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+  <div class="menu-caja" onclick="toggleMenu()">☰</div>
+</section>
   
   <main>
     
@@ -260,7 +315,7 @@ nav ul li a {
 <script>
   document.addEventListener('click', function (event) {
     const menu = document.querySelector("nav");
-    const menuIcon = document.querySelector(".menu-icon");
+    const menuIcon = document.querySelector(".menu-caja");
 
     // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
     if (menu.classList.contains("show") &&
