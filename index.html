@@ -284,16 +284,16 @@ nav ul li a {
 
 
   </style>
-  <style>
-
-    .mi-section {
-  max-width: 1000px;  /* Limita el ancho máximo */
-  width: 100%;        /* Para que sea responsive */
-  margin: 0 auto;     /* Centra la sección */
-  padding: 20px;      /* Espaciado interno opcional */
+ <style>
+.mi-section {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
 }
+
 .redes-sociales {
-  background-image: url("img/Imagen\ redes\ desktop.png"); /* Imagen de fondo solo para desktop */
+  background-image: url("img/Imagen redes desktop.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -303,18 +303,10 @@ nav ul li a {
   text-align: center;
   display: flex;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Puedes aplicar filtros u opacidades si lo deseas */
-.redes-sociales::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* Oscurece la imagen de fondo */
-  z-index: 0;
-}
-
-/* Contenedor principal con contenido encima del fondo */
 .contenedor-redes-wrapper {
   width: 100%;
   max-width: 1000px;
@@ -330,7 +322,6 @@ nav ul li a {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Títulos y párrafo */
 .redes-sociales h2 {
   font-size: 2em;
   font-family: 'Akira Expanded Super Bold', sans-serif;
@@ -343,7 +334,6 @@ nav ul li a {
   margin-bottom: 30px;
 }
 
-/* Íconos de redes */
 .iconos-redes {
   display: flex;
   justify-content: center;
@@ -363,18 +353,14 @@ nav ul li a {
   opacity: 0.8;
 }
 
-/* ===== MEDIA QUERY: solo móviles, fondo diferente ===== */
+/* ==== VERSIÓN MÓVIL ==== */
 @media (max-width: 768px) {
   .redes-sociales {
-    background-image: url("img/imagen\ mi\ vertice.png");
+    background-image: url("img/imagen mi vertice.png");
     background-position: bottom;
     background-size: cover;
     border-radius: 20px;
     padding: 40px 15px;
-  }
-
-  .redes-sociales::before {
-    background: rgba(0, 0, 0, 0.6); /* más oscura en móviles */
   }
 
   .contenedor-redes {
@@ -395,10 +381,8 @@ nav ul li a {
     height: 40px;
   }
 }
-
-
-
 </style>
+
    <style>
     .titulo-alfredo {
   text-align: center;
