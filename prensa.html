@@ -359,7 +359,8 @@ nav ul li a {
 
  <script>
   window.addEventListener('DOMContentLoaded', () => {
-    const baseUrl = `${window.location.protocol}//${window.location.hostname}:3000`;
+    const baseUrl = 'https://alfredo-backend.onrender.com'; // este dominio lo obtienes de Render
+
     
     fetch(`${baseUrl}/articulos-prensa`)
       .then(response => response.json())
