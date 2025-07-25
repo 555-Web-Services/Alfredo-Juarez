@@ -489,7 +489,6 @@ async function cargarAlbumes() {
         audios.forEach(other => {
           if (other !== audio && !other.paused) {
             other.pause();
-            other.currentTime = 0;
           }
         });
       });
