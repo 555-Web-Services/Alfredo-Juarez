@@ -434,6 +434,29 @@ nav ul li a {
   });
 </script>
 <script>
+function aplicarControlReproductores() {
+  const audios = document.querySelectorAll("audio");
+
+  audios.forEach(audio => {
+    // Limitar a 40 segundos
+    audio.addEventListener("timeupdate", () => {
+      if (audio.currentTime >= 40) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+
+    // Detener los demás al reproducir uno
+    audio.addEventListener("play", () => {
+      audios.forEach(other => {
+        if (other !== audio && !other.paused) {
+          other.pause();
+        }
+      });
+    });
+  });
+}
+
 async function cargarAlbumes() {
   const contenedor = document.getElementById('contenedor-albumes');
   try {
@@ -473,26 +496,8 @@ async function cargarAlbumes() {
       contenedor.appendChild(seccion);
     });
 
-    // ✅ Detener todas las demás canciones al reproducir una
-    const audios = document.querySelectorAll("audio");
-    audios.forEach(audio => {
-      // Limitar a 40 segundos
-      audio.addEventListener("timeupdate", () => {
-        if (audio.currentTime >= 40) {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-      });
-
-      // Detener otros al iniciar uno nuevo
-      audio.addEventListener("play", () => {
-        audios.forEach(other => {
-          if (other !== audio && !other.paused) {
-            other.pause();
-          }
-        });
-      });
-    });
+    // ✅ Ahora que ya se insertaron todos, aplicar control
+    aplicarControlReproductores();
 
   } catch (error) {
     console.error('Error al cargar los álbumes:', error);
@@ -500,39 +505,13 @@ async function cargarAlbumes() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', cargarAlbumes);
-  document.addEventListener('DOMContentLoaded', () => {
-  const allAudios = () => document.querySelectorAll("audio");
+document.addEventListener('DOMContentLoaded', () => {
+  cargarAlbumes();
 
-  function setupAudioBehavior() {
-    const audios = allAudios();
-    audios.forEach(audio => {
-      audio.addEventListener("timeupdate", () => {
-        if (audio.currentTime >= 40) {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-      });
-
-      audio.addEventListener("play", () => {
-        audios.forEach(other => {
-          if (other !== audio && !other.paused) {
-            other.pause();
-          }
-        });
-      });
-    });
-  }
-
-  // Ejecutar una vez por los audios estáticos
-  setupAudioBehavior();
-
-  // Esperar a que se carguen los álbumes dinámicos, luego volver a aplicar
-  setTimeout(setupAudioBehavior, 1500);
+  // ✅ También aplicar a los audios del HTML estático
+  aplicarControlReproductores();
 });
-
 </script>
-
 
 </body>
 </html>
