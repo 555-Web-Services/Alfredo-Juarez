@@ -401,7 +401,7 @@ nav ul li a {
     <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
   </footer>
 
-  <!--<script>
+  <script>
   document.addEventListener("DOMContentLoaded", function () {
     const audios = document.querySelectorAll("audio");
 
@@ -414,7 +414,7 @@ nav ul li a {
       });
     });
   });
-</script>-->
+</script>
 <script>
   function toggleMenu() {
     document.querySelector("nav").classList.toggle("show");
@@ -434,29 +434,6 @@ nav ul li a {
   });
 </script>
 <script>
-function aplicarControlReproductores() {
-  const audios = document.querySelectorAll("audio");
-
-  audios.forEach(audio => {
-    // Limitar a 40 segundos
-    audio.addEventListener("timeupdate", () => {
-      if (audio.currentTime >= 40) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-    });
-
-    // Detener los demás al reproducir uno
-    audio.addEventListener("play", () => {
-      audios.forEach(other => {
-        if (other !== audio && !other.paused) {
-          other.pause();
-        }
-      });
-    });
-  });
-}
-
 async function cargarAlbumes() {
   const contenedor = document.getElementById('contenedor-albumes');
   try {
@@ -469,7 +446,7 @@ async function cargarAlbumes() {
 
       const cancionesHTML = album.canciones.map((cancion, i) => `
         <li>${i + 1}. ${cancion.titulo}
-          <audio controls controlsList="nodownload">
+          <audio controls>
             <source src="${cancion.archivo}" type="audio/mpeg">
           </audio>
         </li>
@@ -496,8 +473,22 @@ async function cargarAlbumes() {
       contenedor.appendChild(seccion);
     });
 
-    // ✅ Ahora que ya se insertaron todos, aplicar control
-    aplicarControlReproductores();
+    // Limitar la reproducción a 40 segundos
+    const audios = document.querySelectorAll("audio");
+    audios.forEach(audio => {
+      audio.addEventListener("timeupdate", () => {
+        if (audio.currentTime >= 40) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+
+      audio.addEventListener("play", function () {
+        audios.forEach(other => {
+          if (other !== audio) other.pause();
+        });
+      });
+    });
 
   } catch (error) {
     console.error('Error al cargar los álbumes:', error);
@@ -505,12 +496,7 @@ async function cargarAlbumes() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  cargarAlbumes();
-
-  // ✅ También aplicar a los audios del HTML estático
-  aplicarControlReproductores();
-});
+document.addEventListener('DOMContentLoaded', cargarAlbumes);
 </script>
 
 </body>
