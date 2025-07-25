@@ -374,10 +374,10 @@ nav ul li a {
     <h2>Agregar nuevo álbum</h2>
     <form id="form-discografia" enctype="multipart/form-data">
       <label for="portada">Portada del álbum:</label>
-      <input type="file" id="portada" name="portada" accept="image/*" required>
+      <input type="file" id="portada" name="portada" accept="image/*" >
 
       <label for="contraportada">Contraportada del álbum:</label>
-      <input type="file" id="contraportada" name="contraportada" accept="image/*" required>
+      <input type="file" id="contraportada" name="contraportada" accept="image/*" >
 
       <label for="titulo">Título del álbum:</label>
       <input type="text" id="titulo" name="titulo" required>
@@ -395,6 +395,11 @@ nav ul li a {
       <button type="submit">Guardar álbum</button>
     </form>
   </section>
+
+  <section class="formulario-discografia">
+  <h2>Editar o eliminar álbumes existentes</h2>
+  <div id="albumes-existentes"></div>
+</section>
     
   </main>
   
@@ -441,52 +446,142 @@ nav ul li a {
   });
 </script>
  <script>
-    const numCancionesInput = document.getElementById("numCanciones");
-    const cancionesContainer = document.getElementById("cancionesContainer");
-    const agregarCancionExtraBtn = document.getElementById("agregarCancionExtra");
+async function cargarAlbumesAdmin() {
+  const contenedor = document.getElementById('albumes-existentes');
+  contenedor.innerHTML = '<p>Cargando álbumes...</p>';
 
-    function crearInputCancion(index) {
-      const div = document.createElement("div");
-      div.className = "cancion-input";
-      div.innerHTML = `
-        <input type="text" name="cancionTitulo[]" placeholder="Título de la canción ${index}" required>
-        <input type="file" name="cancionAudio[]" accept="audio/*" required>
+  try {
+    const res = await fetch('/api/discografia');
+    const albumes = await res.json();
+
+    contenedor.innerHTML = '';
+    albumes.forEach(album => {
+      const seccion = document.createElement('div');
+      seccion.style.border = '1px solid #ccc';
+      seccion.style.padding = '1em';
+      seccion.style.marginBottom = '1em';
+      seccion.innerHTML = `
+        <h3>${album.titulo}</h3>
+        <img src="${album.portada}" alt="Portada" width="150">
+        <img src="${album.contraportada}" alt="Contraportada" width="150">
+        <p>${album.descripcion}</p>
+        <ul>
+          ${album.canciones.map(c => `
+            <li>
+              ${c.titulo}<br>
+              <audio controls src="${c.archivo}" style="margin-top: 4px;"></audio>
+            </li>`).join('')}
+        </ul>
+        <button onclick="eliminarAlbum(${album.id})">Eliminar</button>
+        <button onclick='llenarFormularioEditar(${JSON.stringify(album)})'>Editar</button>
       `;
-      cancionesContainer.appendChild(div);
-    }
+      contenedor.appendChild(seccion);
+    });
+  } catch (error) {
+    contenedor.innerHTML = '<p style="color:red">No se pudieron cargar los álbumes.</p>';
+  }
+}
 
-    numCancionesInput.addEventListener("change", () => {
+async function eliminarAlbum(id) {
+  if (!confirm('Confirma que deseas eliminar este álbum')) return;
+  const res = await fetch(`/api/discografia/${id}`, { method: 'DELETE' });
+  const data = await res.json();
+  alert(data.message || 'Eliminado');
+  cargarAlbumesAdmin();
+}
+
+function llenarFormularioEditar(album) {
+  const form = document.getElementById('form-discografia');
+  form.setAttribute('data-id', album.id);
+
+  document.getElementById('titulo').value = album.titulo;
+  document.getElementById('descripcion').value = album.descripcion;
+  document.getElementById('numCanciones').value = album.canciones.length;
+
+  // Mostrar imágenes actuales (solo visualmente)
+  const portadaLabel = document.querySelector('label[for="portada"]');
+  const contraportadaLabel = document.querySelector('label[for="contraportada"]');
+
+  if (!document.getElementById('vista-portada')) {
+    const imgPortada = document.createElement('img');
+    imgPortada.src = album.portada;
+    imgPortada.id = 'vista-portada';
+    imgPortada.style.width = '100px';
+    imgPortada.style.display = 'block';
+    portadaLabel.after(imgPortada);
+  } else {
+    document.getElementById('vista-portada').src = album.portada;
+  }
+
+  if (!document.getElementById('vista-contraportada')) {
+    const imgContraportada = document.createElement('img');
+    imgContraportada.src = album.contraportada;
+    imgContraportada.id = 'vista-contraportada';
+    imgContraportada.style.width = '100px';
+    imgContraportada.style.display = 'block';
+    contraportadaLabel.after(imgContraportada);
+  } else {
+    document.getElementById('vista-contraportada').src = album.contraportada;
+  }
+
+  cancionesContainer.innerHTML = '';
+  album.canciones.forEach((c, index) => {
+    const div = document.createElement("div");
+    div.className = "cancion-input";
+    div.innerHTML = `
+      <input type="text" name="cancionTitulo[]" value="${c.titulo}" ${album.id ? '' : 'required'}>
+      <input type="file" name="cancionAudio[]" accept="audio/*">
+      <audio controls src="${c.archivo}" style="margin-top: 4px; display:block;"></audio>
+      <small style="display:block; font-style:italic;">Actual: ${c.archivo.split('/').pop()}</small>
+    `;
+    cancionesContainer.appendChild(div);
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  alert('Formulario listo para editar. Puedes cambiar lo que desees y guardar. Las canciones e imágenes se conservarán si no las reemplazas.');
+}
+
+const form = document.getElementById("form-discografia");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const albumId = form.getAttribute('data-id');
+
+  const url = albumId ? `/api/discografia/${albumId}` : '/api/discografia';
+  const method = albumId ? 'PUT' : 'POST';
+
+  // ✅ Elimina solo los campos required de archivo si es edición
+  if (albumId) {
+    const archivos = form.querySelectorAll('input[type="file"]');
+    archivos.forEach(input => input.removeAttribute('required'));
+  }
+
+  fetch(url, {
+    method,
+    body: formData
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.mensaje || 'Guardado correctamente');
+      form.reset();
       cancionesContainer.innerHTML = "";
-      const cantidad = parseInt(numCancionesInput.value);
-      for (let i = 1; i <= cantidad; i++) {
-        crearInputCancion(i);
-      }
+      form.removeAttribute('data-id');
+      const imgPortada = document.getElementById('vista-portada');
+      const imgContraportada = document.getElementById('vista-contraportada');
+      if (imgPortada) imgPortada.remove();
+      if (imgContraportada) imgContraportada.remove();
+      cargarAlbumesAdmin();
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Error al guardar el álbum');
     });
+});
 
-    agregarCancionExtraBtn.addEventListener("click", () => {
-      const nuevaCantidad = cancionesContainer.children.length + 1;
-      crearInputCancion(nuevaCantidad);
-    });
+cargarAlbumesAdmin();
+</script>
 
-    // Aquí luego conectamos al backend con fetch
-    document.getElementById("form-discografia").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const formData = new FormData(this);
-      fetch('/api/discografia', {
-        method: 'POST',
-        body: formData
-      })
-      .then(res => res.json())
-      .then(data => {
-        alert('Álbum guardado exitosamente');
-        this.reset();
-        cancionesContainer.innerHTML = "";
-      })
-      .catch(err => {
-        console.error(err);
-        alert('Error al guardar el álbum');
-      });
-    });
-  </script>
+
+
 </body>
 </html>
