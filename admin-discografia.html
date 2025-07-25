@@ -547,7 +547,10 @@ form.addEventListener("submit", function (e) {
   const formData = new FormData(form);
   const albumId = form.getAttribute('data-id');
 
-  const url = albumId ? `/api/discografia/${albumId}` : '/api/discografia';
+  const url = albumId 
+  ? `https://alfredo-backend.onrender.com/api/discografia/${albumId}` 
+  : 'https://alfredo-backend.onrender.com/api/discografia';
+
   const method = albumId ? 'PUT' : 'POST';
 
   // ✅ Elimina solo los campos required de archivo si es edición
