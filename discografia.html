@@ -437,7 +437,7 @@ nav ul li a {
 async function cargarAlbumes() {
   const contenedor = document.getElementById('contenedor-albumes');
   try {
-    const res = await fetch('/api/discografia');
+    const res = await fetch('https://alfredo-backend.onrender.com/api/discografia');
     const data = await res.json();
 
     data.forEach(album => {
