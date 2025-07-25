@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas - Alfredo Juarez</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #111; color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: white; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2opx; text-align: center; }
+  </style>
+   <style>
+
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: "Expanded Super Bold", Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
+}
+
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 40s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+   /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #111111;
+
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #f6f0e0;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+}
+
+  </style>
+  <style>
+.barra-novedades {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 40px auto 30px auto;
+  flex-wrap: wrap;
+}
+
+/* Caja blanca con texto */
+.novedades-caja {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+
+/* Botón hamburguesa redondo */
+.menu-caja {
+  background-color: #c87b07;
+  color: white;
+  font-size: 1.6em;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .menu-caja {
+    display: none;
+  }
+}
+.barra-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 10px auto 5px auto;
+  flex-wrap: wrap;
+}
+
+/* Caja blanca con texto */
+.novedades-caja-menu {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .novedades-caja-menu {
+    display: none;
+  }
+}
+.fondo-degradado-menu {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  padding: 20px 0 10px;
+}
+
+</style>
+<style>
+  .formulario-discografia {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #f6f0e0;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: sans-serif;
+  }
+
+  .formulario-discografia h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .formulario-discografia input,
+  .formulario-discografia textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+
+  .formulario-discografia label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .cancion-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cancion-input input[type="text"] {
+    flex: 1 1 60%;
+    min-width: 200px;
+  }
+
+  .cancion-input input[type="file"] {
+    flex: 1 1 35%;
+    min-width: 120px;
+  }
+
+  .formulario-discografia button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .formulario-discografia button:hover {
+    background-color: #555;
+  }
+
+  @media (max-width: 600px) {
+    .formulario-discografia {
+      padding: 15px;
+    }
+
+    .cancion-input {
+      flex-direction: column;
+    }
+
+    .formulario-discografia h2 {
+      font-size: 1.4rem;
+    }
+
+    .formulario-discografia button {
+      width: 100%;
+    }
+  }
+  .formulario-discografia {
+  width: 90vw;                  /* Ancho máximo relativo a la pantalla */
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #f6f0e0;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;       /* ¡Muy importante! */
+  overflow-x: hidden;
+}
+
+.formulario-discografia input,
+.formulario-discografia textarea {
+  width: 100%;
+  box-sizing: border-box;       /* También clave aquí */
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+</style>
+
+</head>
+<body>
+ <header>
+    <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+  </header>
+  <nav>
+    <ul>
+     <li><a href="admin-panel.html">Panel de Administracion</a></li>
+      <li><a href="admin-discografia.html">Admin-Discografia</a></li>
+      <li><a href="admin-ventas.html">Admin-Ventas</a></li>
+      <li><a href="admin-galeria.html">Admin-Galería</a></li>
+      <li><a href="admin-prensa.html">Admin-Prensa</a></li>
+      <li><a href="index.html">Cerrar Sesión</a></li>
+    </ul>
+  </nav>
+   <section class="barra-menu">
+  <div class="novedades-caja-menu">&nbsp&nbsp&nbsp&nbsp&nbspMENU&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+  <div class="menu-caja" onclick="toggleMenu()">☰</div>
+</section>
+  <main>
+    
+      <section class="formulario-discografia">
+    <h2>Agregar nuevo álbum</h2>
+    <form id="form-discografia" enctype="multipart/form-data">
+      <label for="portada">Portada del álbum:</label>
+      <input type="file" id="portada" name="portada" accept="image/*" required>
+
+      <label for="contraportada">Contraportada del álbum:</label>
+      <input type="file" id="contraportada" name="contraportada" accept="image/*" required>
+
+      <label for="titulo">Título del álbum:</label>
+      <input type="text" id="titulo" name="titulo" required>
+
+      <label for="descripcion">Descripción del álbum:</label>
+      <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+      <label for="numCanciones">Número de canciones:</label>
+      <input type="number" id="numCanciones" name="numCanciones" min="1" required>
+
+      <div id="cancionesContainer"></div>
+
+      <button type="button" id="agregarCancionExtra">Agregar otra canción</button>
+      <br><br>
+      <button type="submit">Guardar álbum</button>
+    </form>
+  </section>
+    
+  </main>
+  
+  <footer style="background-color: #111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-caja");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+ <script>
+    const numCancionesInput = document.getElementById("numCanciones");
+    const cancionesContainer = document.getElementById("cancionesContainer");
+    const agregarCancionExtraBtn = document.getElementById("agregarCancionExtra");
+
+    function crearInputCancion(index) {
+      const div = document.createElement("div");
+      div.className = "cancion-input";
+      div.innerHTML = `
+        <input type="text" name="cancionTitulo[]" placeholder="Título de la canción ${index}" required>
+        <input type="file" name="cancionAudio[]" accept="audio/*" required>
+      `;
+      cancionesContainer.appendChild(div);
+    }
+
+    numCancionesInput.addEventListener("change", () => {
+      cancionesContainer.innerHTML = "";
+      const cantidad = parseInt(numCancionesInput.value);
+      for (let i = 1; i <= cantidad; i++) {
+        crearInputCancion(i);
+      }
+    });
+
+    agregarCancionExtraBtn.addEventListener("click", () => {
+      const nuevaCantidad = cancionesContainer.children.length + 1;
+      crearInputCancion(nuevaCantidad);
+    });
+
+    // Aquí luego conectamos al backend con fetch
+    document.getElementById("form-discografia").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch('/api/discografia', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert('Álbum guardado exitosamente');
+        this.reset();
+        cancionesContainer.innerHTML = "";
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Error al guardar el álbum');
+      });
+    });
+  </script>
+</body>
+</html>
