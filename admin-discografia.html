@@ -590,20 +590,6 @@ cargarAlbumesAdmin();
 </script>
 
 
-<script>
-  const cancionesContainer = document.getElementById('cancionesContainer');
-  const agregarBtn = document.getElementById('agregarCancionExtra');
-
-  agregarBtn.addEventListener('click', () => {
-    const div = document.createElement('div');
-    div.className = 'cancion-input';
-    div.innerHTML = `
-      <input type="text" name="cancionTitulo[]" placeholder="Título de la canción" required>
-      <input type="file" name="cancionAudio[]" accept="audio/*" required>
-    `;
-    cancionesContainer.appendChild(div);
-  });
-</script>
 
 
 </body>
