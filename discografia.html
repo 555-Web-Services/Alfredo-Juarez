@@ -446,7 +446,7 @@ async function cargarAlbumes() {
 
       const cancionesHTML = album.canciones.map((cancion, i) => `
         <li>${i + 1}. ${cancion.titulo}
-          <audio controls>
+          <audio controls controlsList="nodownload">
             <source src="${cancion.archivo}" type="audio/mpeg">
           </audio>
         </li>
@@ -473,9 +473,10 @@ async function cargarAlbumes() {
       contenedor.appendChild(seccion);
     });
 
-    // Limitar la reproducción a 40 segundos
+    // ✅ Detener todas las demás canciones al reproducir una
     const audios = document.querySelectorAll("audio");
     audios.forEach(audio => {
+      // Limitar a 40 segundos
       audio.addEventListener("timeupdate", () => {
         if (audio.currentTime >= 40) {
           audio.pause();
@@ -483,9 +484,13 @@ async function cargarAlbumes() {
         }
       });
 
-      audio.addEventListener("play", function () {
+      // Detener otros al iniciar uno nuevo
+      audio.addEventListener("play", () => {
         audios.forEach(other => {
-          if (other !== audio) other.pause();
+          if (other !== audio && !other.paused) {
+            other.pause();
+            other.currentTime = 0;
+          }
         });
       });
     });
@@ -498,6 +503,7 @@ async function cargarAlbumes() {
 
 document.addEventListener('DOMContentLoaded', cargarAlbumes);
 </script>
+
 
 </body>
 </html>
