@@ -188,7 +188,85 @@
   }
 </style>
 
+<style>
+.barra-novedades {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 40px auto 30px auto;
+  flex-wrap: wrap;
+}
 
+/* Caja blanca con texto */
+.novedades-caja {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+
+/* Botón hamburguesa redondo */
+.menu-caja {
+  background-color: #c87b07;
+  color: white;
+  font-size: 1.6em;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .menu-caja {
+    display: none;
+  }
+}
+.barra-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 10px auto 5px auto;
+  flex-wrap: wrap;
+}
+
+/* Caja blanca con texto */
+.novedades-caja-menu {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .novedades-caja-menu {
+    display: none;
+  }
+}
+.fondo-degradado-menu {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  padding: 20px 0 10px;
+}
+
+</style>
 </head>
 <body>
   <header>
@@ -220,15 +298,18 @@
   </header>
   <nav>
     <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="discografia.html">Discografía</a></li>
-      <li><a href="ventas.html">Ventas</a></li>
-      <li><a href="galeria.html">Galería</a></li>
-      <li><a href="prensa.html">Prensa</a></li>
-      <li><a href="acerca.html">Acerca</a></li>
-      <li><a href="login.html">Iniciar Sesión</a></li>
+      <li><a href="admin-panel.html">Panel de Administracion</a></li>
+      <li><a href="admin-discografia.html">Admin-Discografia</a></li>
+      <li><a href="admin-ventas.html">Admin-Ventas</a></li>
+      <li><a href="admin-galeria.html">Admin-Galería</a></li>
+      <li><a href="admin-prensa.html">Admin-Prensa</a></li>
+      <li><a href="index.html">Cerrar Sesión</a></li>
     </ul>
   </nav>
+  <section class="barra-menu">
+  <div class="novedades-caja-menu">&nbsp&nbsp&nbsp&nbsp&nbspMENU&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+  <div class="menu-caja" onclick="toggleMenu()">☰</div>
+</section>
   <main>
     <section class="admin-galeria">
       <h2>Agregar Nueva Obra</h2>
@@ -396,7 +477,7 @@ cargarObras();
 
   document.addEventListener('click', function (event) {
     const menu = document.querySelector("nav ul");
-    const menuIcon = document.querySelector(".menu-icon");
+    const menuIcon = document.querySelector(".menu-caja");
 
     if (menu.classList.contains("show") &&
         !menu.contains(event.target) &&
