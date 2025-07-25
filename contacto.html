@@ -188,7 +188,36 @@ nav ul li a {
   }
 }
 </style>
-  
+  <style>
+    .seccion-contacto {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f6f0e0;
+  border-radius: 20px;
+}
+
+.seccion-contacto h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.seccion-contacto p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.datos-contacto a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.datos-contacto a:hover {
+  text-decoration: underline;
+}
+
+  </style>
 </head>
 <body>
  <header>
@@ -239,13 +268,15 @@ nav ul li a {
   
   <main>
     
-      <h2>Contacto</h2>
-      <p>Correo electronico: <a href="alfredojuarezcastellanos@gmail.com">alfredojuarezcastellanos@gmail.com</a></p>
-      <ul>
-        <li><a href="#">iTunes</a></li>
-        <li><a href="#">Amazon Music</a></li>
-        <li><a href="#">Spotify</a></li>
-      </ul>
+    <section class="seccion-contacto">
+  <h2>Contacto</h2>
+  <p>Si deseas comunicarte conmigo para contrataciones, colaboraciones o cualquier otro motivo, puedes hacerlo a través de:</p>
+
+  <div class="datos-contacto">
+    <p><strong>Correo electrónico:</strong> <a href="mailto:alfredojuarezcastellanos@gmail.com">alfredojuarezcastellanos@gmail.com</a></p>
+    <p><strong>Teléfono:</strong> <a href="tel:+529515911400">+52 951 591 1400</a></p>
+  </div>
+</section>
     
   </main>
   
