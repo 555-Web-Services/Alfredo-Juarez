@@ -451,7 +451,7 @@ async function cargarAlbumesAdmin() {
   contenedor.innerHTML = '<p>Cargando álbumes...</p>';
 
   try {
-    const res = await fetch('/api/discografia');
+    const res = await fetch('https://alfredo-backend.onrender.com/api/discografia');
     const albumes = await res.json();
 
     contenedor.innerHTML = '';
@@ -484,7 +484,7 @@ async function cargarAlbumesAdmin() {
 
 async function eliminarAlbum(id) {
   if (!confirm('Confirma que deseas eliminar este álbum')) return;
-  const res = await fetch(`/api/discografia/${id}`, { method: 'DELETE' });
+  const res = await fetch(`https://alfredo-backend.onrender.com/api/discografia/${id}`, { method: 'DELETE' });
   const data = await res.json();
   alert(data.message || 'Eliminado');
   cargarAlbumesAdmin();
