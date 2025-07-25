@@ -445,7 +445,61 @@ nav ul li a {
     }
   });
 </script>
- <script>
+<script>
+const cancionesContainer = document.getElementById('cancionesContainer');
+const agregarBtn = document.getElementById('agregarCancionExtra');
+const form = document.getElementById("form-discografia");
+
+agregarBtn.addEventListener('click', () => {
+  const div = document.createElement('div');
+  div.className = 'cancion-input';
+  div.innerHTML = `
+    <input type="text" name="cancionTitulo[]" placeholder="Título de la canción" required>
+    <input type="file" name="cancionAudio[]" accept="audio/*" required>
+  `;
+  cancionesContainer.appendChild(div);
+});
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const albumId = form.getAttribute('data-id');
+
+  const url = albumId 
+    ? `https://alfredo-backend.onrender.com/api/discografia/${albumId}` 
+    : 'https://alfredo-backend.onrender.com/api/discografia';
+
+  const method = albumId ? 'PUT' : 'POST';
+
+  if (albumId) {
+    const archivos = form.querySelectorAll('input[type="file"]');
+    archivos.forEach(input => input.removeAttribute('required'));
+  }
+
+  fetch(url, {
+    method,
+    body: formData
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.mensaje || 'Guardado correctamente');
+      form.reset();
+      cancionesContainer.innerHTML = "";
+      form.removeAttribute('data-id');
+
+      const imgPortada = document.getElementById('vista-portada');
+      const imgContraportada = document.getElementById('vista-contraportada');
+      if (imgPortada) imgPortada.remove();
+      if (imgContraportada) imgContraportada.remove();
+
+      cargarAlbumesAdmin();
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Error al guardar el álbum');
+    });
+});
+
 async function cargarAlbumesAdmin() {
   const contenedor = document.getElementById('albumes-existentes');
   contenedor.innerHTML = '<p>Cargando álbumes...</p>';
@@ -491,45 +545,36 @@ async function eliminarAlbum(id) {
 }
 
 function llenarFormularioEditar(album) {
-  const form = document.getElementById('form-discografia');
   form.setAttribute('data-id', album.id);
-
   document.getElementById('titulo').value = album.titulo;
   document.getElementById('descripcion').value = album.descripcion;
   document.getElementById('numCanciones').value = album.canciones.length;
 
-  // Mostrar imágenes actuales (solo visualmente)
   const portadaLabel = document.querySelector('label[for="portada"]');
   const contraportadaLabel = document.querySelector('label[for="contraportada"]');
 
-  if (!document.getElementById('vista-portada')) {
-    const imgPortada = document.createElement('img');
-    imgPortada.src = album.portada;
-    imgPortada.id = 'vista-portada';
-    imgPortada.style.width = '100px';
-    imgPortada.style.display = 'block';
-    portadaLabel.after(imgPortada);
-  } else {
-    document.getElementById('vista-portada').src = album.portada;
-  }
+  const viejaPortada = document.getElementById('vista-portada');
+  if (viejaPortada) viejaPortada.remove();
+  const nuevaPortada = document.createElement('img');
+  nuevaPortada.src = album.portada;
+  nuevaPortada.id = 'vista-portada';
+  nuevaPortada.style.width = '100px';
+  portadaLabel.after(nuevaPortada);
 
-  if (!document.getElementById('vista-contraportada')) {
-    const imgContraportada = document.createElement('img');
-    imgContraportada.src = album.contraportada;
-    imgContraportada.id = 'vista-contraportada';
-    imgContraportada.style.width = '100px';
-    imgContraportada.style.display = 'block';
-    contraportadaLabel.after(imgContraportada);
-  } else {
-    document.getElementById('vista-contraportada').src = album.contraportada;
-  }
+  const viejaContra = document.getElementById('vista-contraportada');
+  if (viejaContra) viejaContra.remove();
+  const nuevaContra = document.createElement('img');
+  nuevaContra.src = album.contraportada;
+  nuevaContra.id = 'vista-contraportada';
+  nuevaContra.style.width = '100px';
+  contraportadaLabel.after(nuevaContra);
 
   cancionesContainer.innerHTML = '';
-  album.canciones.forEach((c, index) => {
+  album.canciones.forEach(c => {
     const div = document.createElement("div");
     div.className = "cancion-input";
     div.innerHTML = `
-      <input type="text" name="cancionTitulo[]" value="${c.titulo}" ${album.id ? '' : 'required'}>
+      <input type="text" name="cancionTitulo[]" value="${c.titulo}">
       <input type="file" name="cancionAudio[]" accept="audio/*">
       <audio controls src="${c.archivo}" style="margin-top: 4px; display:block;"></audio>
       <small style="display:block; font-style:italic;">Actual: ${c.archivo.split('/').pop()}</small>
@@ -538,51 +583,12 @@ function llenarFormularioEditar(album) {
   });
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  alert('Formulario listo para editar. Puedes cambiar lo que desees y guardar. Las canciones e imágenes se conservarán si no las reemplazas.');
+  alert('Formulario listo para editar.');
 }
-
-const form = document.getElementById("form-discografia");
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const albumId = form.getAttribute('data-id');
-
-  const url = albumId 
-  ? `https://alfredo-backend.onrender.com/api/discografia/${albumId}` 
-  : 'https://alfredo-backend.onrender.com/api/discografia';
-
-  const method = albumId ? 'PUT' : 'POST';
-
-  // ✅ Elimina solo los campos required de archivo si es edición
-  if (albumId) {
-    const archivos = form.querySelectorAll('input[type="file"]');
-    archivos.forEach(input => input.removeAttribute('required'));
-  }
-
-  fetch(url, {
-    method,
-    body: formData
-  })
-    .then(res => res.json())
-    .then(data => {
-      alert(data.mensaje || 'Guardado correctamente');
-      form.reset();
-      cancionesContainer.innerHTML = "";
-      form.removeAttribute('data-id');
-      const imgPortada = document.getElementById('vista-portada');
-      const imgContraportada = document.getElementById('vista-contraportada');
-      if (imgPortada) imgPortada.remove();
-      if (imgContraportada) imgContraportada.remove();
-      cargarAlbumesAdmin();
-    })
-    .catch(err => {
-      console.error(err);
-      alert('Error al guardar el álbum');
-    });
-});
 
 cargarAlbumesAdmin();
 </script>
+
 
 <script>
   const cancionesContainer = document.getElementById('cancionesContainer');
