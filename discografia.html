@@ -501,6 +501,36 @@ async function cargarAlbumes() {
 }
 
 document.addEventListener('DOMContentLoaded', cargarAlbumes);
+  document.addEventListener('DOMContentLoaded', () => {
+  const allAudios = () => document.querySelectorAll("audio");
+
+  function setupAudioBehavior() {
+    const audios = allAudios();
+    audios.forEach(audio => {
+      audio.addEventListener("timeupdate", () => {
+        if (audio.currentTime >= 40) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+
+      audio.addEventListener("play", () => {
+        audios.forEach(other => {
+          if (other !== audio && !other.paused) {
+            other.pause();
+          }
+        });
+      });
+    });
+  }
+
+  // Ejecutar una vez por los audios estáticos
+  setupAudioBehavior();
+
+  // Esperar a que se carguen los álbumes dinámicos, luego volver a aplicar
+  setTimeout(setupAudioBehavior, 1500);
+});
+
 </script>
 
 
