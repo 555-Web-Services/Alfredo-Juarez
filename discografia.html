@@ -401,7 +401,7 @@ nav ul li a {
     <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
   </footer>
 
-  <script>
+  <!--<script>
   document.addEventListener("DOMContentLoaded", function () {
     const audios = document.querySelectorAll("audio");
 
@@ -414,7 +414,7 @@ nav ul li a {
       });
     });
   });
-</script>
+</script>-->
 <script>
   function toggleMenu() {
     document.querySelector("nav").classList.toggle("show");
@@ -474,7 +474,7 @@ async function cargarAlbumes() {
     });
 
     // ✅ Detener todas las demás canciones al reproducir una
-   /* const audios = document.querySelectorAll("audio");
+    const audios = document.querySelectorAll("audio");
     audios.forEach(audio => {
       // Limitar a 40 segundos
       audio.addEventListener("timeupdate", () => {
@@ -492,7 +492,7 @@ async function cargarAlbumes() {
           }
         });
       });
-    });*/
+    });
 
   } catch (error) {
     console.error('Error al cargar los álbumes:', error);
