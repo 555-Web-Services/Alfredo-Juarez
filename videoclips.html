@@ -19,7 +19,7 @@
   margin: 0;
   padding: 0;
   font-family: "Expanded Super Bold", Helvetica, sans-serif;
-  background: linear-gradient(to bottom, #1b263b 0%, #0d1b2a 100%);
+  background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
 }
 
 
@@ -72,7 +72,7 @@
     height: 90%; /* se adapta mejor */
   }
 
-   /* MENU DESKTOP */
+  /* MENU DESKTOP */
 nav ul {
   display: flex;
   justify-content: center;
@@ -99,8 +99,8 @@ nav ul li a {
   right: 1em;
   z-index: 100;
   cursor: pointer;
-  color: #111111;
-
+  color: #bbbb24;
+  background-color:#000;
 }
 
 /* MENU RESPONSIVO */
@@ -133,11 +133,60 @@ nav ul li a {
   }
 }
 
-
-
 }
 
   </style>
+  <style>
+  /* Botón hamburguesa redondo */
+.menu-caja {
+  background-color: #c87b07;
+  color: white;
+  font-size: 1.6em;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .menu-caja {
+    display: none;
+  }
+}
+.barra-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 10px auto 5px auto;
+  flex-wrap: wrap;
+}
+
+/* Caja blanca con texto */
+.novedades-caja-menu {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Expanded Super Bold', sans-serif;
+  letter-spacing: 0.35em;
+  text-align: center;
+}
+/* Solo visible en móvil */
+@media (min-width: 769px) {
+  .novedades-caja-menu {
+    display: none;
+  }
+}
+</style>
  <style>
     /* 1. El Fondo del MAIN (Tono de azul oscuro de fondo) */
     main {
