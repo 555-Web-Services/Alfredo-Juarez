@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas - Alfredo Juarez</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #111; color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; justify-content: center; padding: 0; background: #333; margin: 0; }
+    nav ul li { margin: 0 1em; }
+    nav ul li a { color: white; text-decoration: none; padding: 1em; display: block; }
+    nav ul li a:hover { background: #555; }
+    main { padding: 2em; text-align: center; }
+  </style>
+   <style>
+
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: "Expanded Super Bold", Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
+}
+
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .carrusel {
+      display: flex;
+      width: 200%;
+      animation: mover 40s linear infinite;
+      height: 100%;
+    }
+
+    .carrusel img {
+      display: block;
+      width: calc(100% / 14);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-central {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+  header {
+    height: 140px; /* reduce la altura para móviles */
+  }
+
+  .carrusel img {
+    width: calc(100% / 8); /* menos imágenes visibles para móviles */
+  }
+
+  .logo-central {
+    height: 90%; /* se adapta mejor */
+  }
+
+   /* MENU DESKTOP */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  gap: 1em;
+  background-color: #f6f0e0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONO DE MENU */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  cursor: pointer;
+  color: #111111;
+
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #f6f0e0;
+    z-index: 90;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+  }
+
+  nav.show {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: start;
+    padding: 2em;
+    gap: 1.5em;
+  }
+}
+
+
+
+}
+
+  </style>
+  <style>
+    /* Contenedor del Álbum */
+    .album-container {
+        padding: 40px 20px;
+        background-color: #f4f4f4; /* O el color de tu marca */
+    }
+
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Tarjeta estilo Foto de Álbum */
+    .video-card {
+        position: relative;
+        background: white;
+        padding: 10px 10px 40px 10px; /* Borde blanco estilo foto antigua */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        cursor: pointer;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .video-card:hover {
+        transform: rotate(-2deg) scale(1.05);
+        z-index: 10;
+    }
+
+    .video-card img {
+        width: 100%;
+        display: block;
+        filter: grayscale(20%);
+        transition: filter 0.3s;
+    }
+
+    .video-card:hover img {
+        filter: grayscale(0%);
+    }
+
+    /* Transición de Letras (Overlay) */
+    .card-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    .video-card:hover .card-overlay {
+        opacity: 1;
+    }
+
+    .card-text {
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-family: 'Arial', sans-serif;
+        transform: translateY(20px);
+        transition: transform 0.4s ease;
+    }
+
+    .video-card:hover .card-text {
+        transform: translateY(0);
+    }
+
+    /* Lightbox (Reproductor sobrepuesto) */
+    .lightbox {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .video-wrapper {
+        width: 80%;
+        max-width: 900px;
+        aspect-ratio: 16/9;
+    }
+
+    #youtube-iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px; right: 30px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    /* Ajuste para móviles (Responsive) */
+    @media (max-width: 600px) {
+        .video-grid { grid-template-columns: 1fr; }
+        .video-wrapper { width: 95%; }
+    }
+</style>
+</head>
+<body>
+ <header>
+    <div class="carrusel">
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+      <img src="img/Header/Imagen disk7.jpeg" alt="">
+      <img src="img/Header/Imagen disk8.jpeg" alt="">
+      <img src="img/Header/Imagen disk9.jpeg" alt="">
+      <img src="img/Header/Imagen disk10.jpeg" alt="">
+      <img src="img/Header/Imagen disk11.jpeg" alt="">
+      <img src="img/Header/Imagen disk12.jpeg" alt="">
+      <img src="img/Header/Imagen disk13.jpeg" alt="">
+      <img src="img/Header/Imagen disk14.jpeg" alt="">
+      <!-- Se repiten para crear el efecto de cinta infinita -->
+      <img src="img/Header/Imagen disk1.jpeg" alt="">
+      <img src="img/Header/Imagen disk2.jpeg" alt="">
+      <img src="img/Header/Imagen disk3.jpeg" alt="">
+      <img src="img/Header/Imagen disk4.jpeg" alt="">
+      <img src="img/Header/Imagen disk5.jpeg" alt="">
+      <img src="img/Header/Imagen disk6.jpeg" alt="">
+    </div>
+
+    <!-- Logo estático encima del carrusel -->
+    <img src="img/ChatGPT Image 24 may 2025, 07_39_59 p.m..png" alt="Logo Central" class="logo-central">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Página Principal</a></li>
+      <li><a href="discografia.html">Discografía</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="galeria.html">Galería de Arte</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+      <li><a href="acerca.html">Acerca de Alfredo Juarez</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar Sesion</a></li>
+    </ul>
+  </nav>
+  <main>
+     <main class="album-container">
+    <div class="video-grid">
+        
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">Nombre del Artista - Título, 1.5M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('VIDEO_ID_2')">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">Boda Cinematográfica - Ana & Luis, 500k vistas</p>
+            </div>
+        </div>
+
+        </div>
+
+    <div id="video-lightbox" class="lightbox" onclick="closeVideo()">
+        <span class="close-btn">&times;</span>
+        <div class="video-wrapper">
+            <iframe id="youtube-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+</main>
+  </main>
+  
+  <footer style="background-color: #111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
+    <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+  }
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector("nav");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Si el menú está abierto y el clic no fue dentro del menú ni en el icono
+    if (menu.classList.contains("show") &&
+        !menu.contains(event.target) &&
+        !menuIcon.contains(event.target)) {
+      menu.classList.remove("show");
+    }
+  });
+</script>
+
+<script>
+    function openVideo(videoId) {
+        const lightbox = document.getElementById('video-lightbox');
+        const iframe = document.getElementById('youtube-iframe');
+        
+        // URL de YouTube con autoplay activado
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&origin=${window.location.origin}`;
+        lightbox.style.display = 'flex';
+    }
+
+    function closeVideo() {
+        const lightbox = document.getElementById('video-lightbox');
+        const iframe = document.getElementById('youtube-iframe');
+        
+        // Limpiamos el src para detener el video al cerrar
+        iframe.src = "";
+        lightbox.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
