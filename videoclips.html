@@ -437,19 +437,33 @@ nav ul li a {
 
 <script>
     function openVideo(videoId) {
-        const lightbox = document.getElementById('video-lightbox');
-        const iframe = document.getElementById('youtube-iframe');
-        
-        // URL de YouTube con autoplay activado
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&origin=${window.location.origin}`;
-        lightbox.style.display = 'flex';
+        // 1. Detectamos si el usuario está en un dispositivo móvil
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            // 2. Si es móvil, redirigimos a la URL que abre la App de YouTube
+            // El protocolo 'vnd.youtube:' intenta forzar la apertura de la app
+            window.location.href = `vnd.youtube:${videoId}`;
+            
+            // Backup por si el protocolo anterior falla en algunos navegadores
+            setTimeout(() => {
+                window.location.href = `https://www.youtube.com/watch?v=${videoId}`;
+            }, 500);
+        } else {
+            // 3. Si es computadora, mantenemos tu reproductor actual (Lightbox)
+            const lightbox = document.getElementById('video-lightbox');
+            const iframe = document.getElementById('youtube-iframe');
+            
+            // Usamos el formato /embed/ con parámetros de seguridad para web [cite: 35, 74]
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&origin=${window.location.origin}`; 
+            lightbox.style.display = 'flex';
+        }
     }
 
     function closeVideo() {
         const lightbox = document.getElementById('video-lightbox');
         const iframe = document.getElementById('youtube-iframe');
         
-        // Limpiamos el src para detener el video al cerrar
         iframe.src = "";
         lightbox.style.display = 'none';
     }
