@@ -19,7 +19,7 @@
   margin: 0;
   padding: 0;
   font-family: "Expanded Super Bold", Helvetica, sans-serif;
-  background: linear-gradient(to bottom, #f5f0e6 0%, #d4c1a3 100%);
+  background: linear-gradient(to bottom, #1b263b 0%, #0d1b2a 100%);
 }
 
 
@@ -138,58 +138,72 @@ nav ul li a {
 }
 
   </style>
-  <style>
-    /* Contenedor del Álbum */
-    .album-container {
-        padding: 40px 20px;
-        background-color: #f4f4f4; /* O el color de tu marca */
+ <style>
+    /* 1. El Fondo del MAIN (Tono de azul oscuro de fondo) */
+    main {
+        background-color: #0a1118; /* Ajusta este código si tu azul es más oscuro/claro */
+        padding: 50px 0;
+        min-height: 100vh;
     }
 
+    /* 2. Contenedor del Álbum (Bordes redondeados y azul intermedio) */
+    .album-container {
+        max-width: 1100px; /* Alineado con tu discografía */
+        margin: 0 auto;
+        background-color: #111d27; /* El tono de azul de tus tarjetas de música */
+        border-radius: 20px; /* Bordes redondeados pronunciados */
+        overflow: hidden; /* Importante para que la rejilla respete el redondeo */
+        padding: 0; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+    }
+
+    /* 3. Rejilla de Videos (Bordes internos sutiles) */
     .video-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
-        max-width: 1200px;
-        margin: 0 auto;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 0;
+        /* Bordes que dividen los videos, usa un azul muy sutil o gris oscuro */
+        border-top: 1px solid rgba(255,255,255,0.05);
+        border-left: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* Tarjeta estilo Foto de Álbum */
+    /* 4. Tarjeta de Video */
     .video-card {
         position: relative;
-        background: white;
-        padding: 10px 10px 40px 10px; /* Borde blanco estilo foto antigua */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         cursor: pointer;
-        overflow: hidden;
-        transition: transform 0.3s ease;
+        background: transparent;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        border-right: 1px solid rgba(255,255,255,0.05);
+        transition: background 0.3s ease;
     }
 
+    /* Efecto al pasar el mouse (Hover) */
     .video-card:hover {
-        transform: rotate(-2deg) scale(1.05);
-        z-index: 10;
+        background-color: rgba(255,255,255,0.03);
     }
 
     .video-card img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
         display: block;
-        filter: grayscale(20%);
-        transition: filter 0.3s;
+        opacity: 0.9;
+        transition: opacity 0.3s ease;
     }
 
     .video-card:hover img {
-        filter: grayscale(0%);
+        opacity: 0.3; /* Se oscurece para mostrar el texto */
     }
 
-    /* Transición de Letras (Overlay) */
+    /* 5. Texto Centrado Estilo Portafolio */
     .card-overlay {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.7);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
-        transition: opacity 0.4s ease-in-out;
+        transition: opacity 0.3s ease;
     }
 
     .video-card:hover .card-overlay {
@@ -197,52 +211,13 @@ nav ul li a {
     }
 
     .card-text {
-        color: white;
+        color: #ffffff;
         text-align: center;
-        padding: 15px;
-        font-family: 'Arial', sans-serif;
-        transform: translateY(20px);
-        transition: transform 0.4s ease;
-    }
-
-    .video-card:hover .card-text {
-        transform: translateY(0);
-    }
-
-    /* Lightbox (Reproductor sobrepuesto) */
-    .lightbox {
-        display: none;
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.9);
-        z-index: 9999;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .video-wrapper {
-        width: 80%;
-        max-width: 900px;
-        aspect-ratio: 16/9;
-    }
-
-    #youtube-iframe {
-        width: 100%;
-        height: 100%;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 20px; right: 30px;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-    }
-
-    /* Ajuste para móviles (Responsive) */
-    @media (max-width: 600px) {
-        .video-grid { grid-template-columns: 1fr; }
-        .video-wrapper { width: 95%; }
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.85rem;
+        line-height: 1.6;
     }
 </style>
 </head>
@@ -288,25 +263,125 @@ nav ul li a {
       <li><a href="login.html">Iniciar Sesion</a></li>
     </ul>
   </nav>
-  <main>
      <main class="album-container">
-    <div class="video-grid">
+      <h2 style="color: white; margin-bottom: 20px;">Video Clips Musicales</h2>
+      <h2 style="color: white;">Descubre los clips mas nuevos de Alfredo Juarez</h2>
+     <div class="video-grid">
         
         <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
             <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
             <div class="card-overlay">
-                <p class="card-text">Nombre del Artista - Título, 1.5M vistas</p>
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
             </div>
         </div>
 
-        <div class="video-card" onclick="openVideo('VIDEO_ID_2')">
-            <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="Miniatura Video">
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
             <div class="card-overlay">
-                <p class="card-text">Boda Cinematográfica - Ana & Luis, 500k vistas</p>
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('UPKYWgH1SmE')">
+            <img src="https://img.youtube.com/vi/UPKYWgH1SmE/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY FT FRANCO ESCAMILLA - FLORES AMARILLAS, 108.105 vistas</p>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('j1QXEde99po')">
+            <img src="https://img.youtube.com/vi/j1QXEde99po/maxresdefault.jpg" alt="Miniatura Video">
+            <div class="card-overlay">
+                <p class="card-text">EDGAR OCERANSKY - TE DEJÉ, 1.8M vistas</p>
             </div>
         </div>
 
         </div>
+        
 
     <div id="video-lightbox" class="lightbox" onclick="closeVideo()">
         <span class="close-btn">&times;</span>
@@ -315,7 +390,6 @@ nav ul li a {
         </div>
     </div>
 </main>
-  </main>
   
   <footer style="background-color: #111; color: white; text-align: center; padding: 1em 0; margin-top: 2em;">
     <p>&copy; 2025 Alfredo Juarez. Todos los derechos reservados.</p>
